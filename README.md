@@ -22,7 +22,7 @@ Modern dark glassmorphism temalı, yüksek performanslı, ambient glow ve intera
   - `ASCII Knight` (HTML5 Canvas 2D, Web Audio API, Uint32Array 60 FPS) — [ascii-knight.vercel.app](https://ascii-knight.vercel.app)
   - `KYK Yemek Portalı` (Mobil öncelikli lightweight dashboard) — [kyk-yemek.vercel.app](https://kyk-yemek.vercel.app)
   - `Cyber Shield` (WCAG uyumlu pedagojik eğitim platformu) — [siberzorbalik.vercel.app](https://siberzorbalik.vercel.app)
-  - `CoreMax` (Donanım & oyuncu ekipmanları e-ticaret vitrini) — [coremax.vercel.app](https://coremax.vercel.app)
+  - `CoreMax` (Donanım & oyuncu ekipmanları e-ticaret vitrini) — [coremaxtech.vercel.app](https://coremaxtech.vercel.app)
   - `Ders Programı & Sınav Takvimi` (Vanilla JS, LocalStorage, Dark/Light Mod) — [dersprog.vercel.app](https://dersprog.vercel.app)
   - `Jet Engine 3D` (Three.js / WebGL parça simülasyonu)
   - `Öğrenci Bilgi Sistemi (OBS)` (Flask, SQLite, 3 rollü yetkilendirme)
