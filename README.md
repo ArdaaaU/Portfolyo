@@ -18,11 +18,12 @@ Modern dark glassmorphism temalı, yüksek performanslı, ambient glow ve intera
 - 🌟 **Dark Glassmorphism & Ambient Glow**: Arka planda yumuşak ışık gradyanları, `backdrop-filter: blur(20px)` ve modern kart tasarımları.
 - 💻 **İnteraktif Bash Terminali**: macOS pencere kontrolleri ile geliştirici profilini ve durumunu interaktif sergileyen terminal simülatörü.
 - ⚡ **Kategori Bazlı Filtrelenebilir Proje Vitrini**:
-  - `Turnuva Ağacı` (Supabase Realtime, PostgreSQL)
-  - `ASCII Knight` (HTML5 Canvas 2D, Web Audio API, Uint32Array 60 FPS)
-  - `KYK Yemek Portalı` (Mobil öncelikli lightweight dashboard)
-  - `Cyber Shield` (WCAG uyumlu pedagojik eğitim platformu)
-  - `CoreMax` (Donanım & oyuncu ekipmanları e-ticaret vitrini)
+  - `Turnuva Ağacı` (Supabase Realtime, PostgreSQL) — [turnuvaagac.vercel.app](https://turnuvaagac.vercel.app)
+  - `ASCII Knight` (HTML5 Canvas 2D, Web Audio API, Uint32Array 60 FPS) — [ascii-knight.vercel.app](https://ascii-knight.vercel.app)
+  - `KYK Yemek Portalı` (Mobil öncelikli lightweight dashboard) — [kyk-yemek.vercel.app](https://kyk-yemek.vercel.app)
+  - `Cyber Shield` (WCAG uyumlu pedagojik eğitim platformu) — [siberzorbalik.vercel.app](https://siberzorbalik.vercel.app)
+  - `CoreMax` (Donanım & oyuncu ekipmanları e-ticaret vitrini) — [coremax.vercel.app](https://coremax.vercel.app)
+  - `Ders Programı & Sınav Takvimi` (Vanilla JS, LocalStorage, Dark/Light Mod) — [dersprog.vercel.app](https://dersprog.vercel.app)
   - `Jet Engine 3D` (Three.js / WebGL parça simülasyonu)
   - `Öğrenci Bilgi Sistemi (OBS)` (Flask, SQLite, 3 rollü yetkilendirme)
 - 📋 **Tek Tıkla E-Posta Kopyalama**: Geri bildirimli kopyalama mekanizması.
