@@ -10,7 +10,6 @@ Modern dark glassmorphism temalı, yüksek performanslı, ambient glow ve intera
 
 ## 🚀 Canlı Önizleme & Domain
 - **Canlı URL**: [https://ardautancak.vercel.app](https://ardautancak.vercel.app)
-- **Tasarım İlhamı**: `onursozeri.com.tr` modern glassmorphic koyu tema mimarisi.
 
 ---
 
