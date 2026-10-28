@@ -146,38 +146,78 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 5. CONTACT FORM HANDLING
+  // 5. CONTACT FORM HANDLING (Direct to Email)
   // ==========================================
   const contactForm = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
 
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Gönderiliyor...';
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const subjectInput = document.getElementById('subject');
+      const messageInput = document.getElementById('message');
 
-      setTimeout(() => {
-        contactForm.reset();
-        submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Mesajınız İletildi!';
-        submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+      const name = nameInput ? nameInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim() : '';
+      const subject = subjectInput ? subjectInput.value.trim() : '';
+      const message = messageInput ? messageInput.value.trim() : '';
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> E-postanıza Gönderiliyor...';
+      if (formStatus) formStatus.innerHTML = '';
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/ardautancak2@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            'Ad Soyad': name,
+            'Gönderen E-Posta': email,
+            'Konu': subject,
+            'Mesaj': message,
+            '_subject': `📩 Yeni Portfolyo Mesajı: ${name} — ${subject}`,
+            '_template': 'table',
+            '_captcha': 'false'
+          })
+        });
+
+        if (response.ok) {
+          contactForm.reset();
+          submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Mesajınız E-Postama İletildi!';
+          submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+          submitBtn.style.color = '#fff';
+
+          if (formStatus) {
+            formStatus.innerHTML = '<p style="color: #34d399; margin-top: 10px; font-size: 0.9rem;"><i class="fa-solid fa-circle-check"></i> Teşekkürler! Mesajınız başarıyla ardautancak2@gmail.com adresime iletildi. En kısa sürede yanıtlayacağım.</p>';
+          }
+        } else {
+          throw new Error('Gönderim başarısız.');
+        }
+      } catch (err) {
+        submitBtn.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Gönderilemedi';
+        submitBtn.style.background = '#ef4444';
         submitBtn.style.color = '#fff';
 
         if (formStatus) {
-          formStatus.innerHTML = '<p style="color: #34d399; margin-top: 10px; font-size: 0.9rem;"><i class="fa-solid fa-circle-check"></i> Teşekkürler! Mesajınız başarıyla alındı, en kısa sürede dönüş yapacağım.</p>';
+          formStatus.innerHTML = '<p style="color: #f87171; margin-top: 10px; font-size: 0.9rem;"><i class="fa-solid fa-circle-exclamation"></i> Bir sorun oluştu. Lütfen doğrudan <a href="mailto:ardautancak2@gmail.com" style="text-decoration: underline; color: #fff;">ardautancak2@gmail.com</a> adresine e-posta gönderin.</p>';
         }
-
+      } finally {
         setTimeout(() => {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
           submitBtn.style.background = '';
           submitBtn.style.color = '';
           if (formStatus) formStatus.innerHTML = '';
-        }, 5000);
-      }, 1000);
+        }, 6000);
+      }
     });
   }
 
