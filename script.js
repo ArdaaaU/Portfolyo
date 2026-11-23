@@ -578,10 +578,10 @@ function calculatePsuHeadroom({ cpuWatts, gpuWatts, drives, overclock }) {
       projects: (block) => {
         block.append(
           createRow('01 KYK Yemek', 'kykyemek.vercel.app (Mobil Öncelikli)', 'accent'),
-          createRow('02 Turnuva', 'turnuvaagac.vercel.app (Supabase Realtime)', 'accent'),
+          createRow('02 ChronoCraft', 'github.com/ArdaaaU/chronocraft-neural-chronograph (R3F/GLSL)', 'accent'),
           createRow('03 CoreMax', 'coremaxtech.vercel.app (E-Ticaret Vitrini)'),
           createRow('04 My-PcWiki', 'ardaaau.github.io/my-pcwiki (Donanım Wiki)', 'accent'),
-          createRow('05 ChronoCraft', 'github.com/ArdaaaU/chronocraft-neural-chronograph (R3F/GLSL)', 'accent'),
+          createRow('05 Turnuva', 'turnuvaagac.vercel.app (Supabase Realtime)'),
           createRow('06 ASCII Knight', 'ascii-knight.vercel.app (60 FPS Canvas & Audio)'),
           createRow('07 RigCheck', 'github.com/ArdaaaU/RigCheack (PC Builder & Supabase)'),
           createRow('08 OBS', 'obs-sistemi.vercel.app (Flask & SQLite)'),
