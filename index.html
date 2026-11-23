@@ -3,742 +3,1191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arda Utancak | Front-End Developer & UI/UX Tasarımcı</title>
-  <meta name="description" content="Arda Utancak — Kullanıcı odaklı, performanslı ve modern web deneyimleri geliştiren Front-End Yazılımcı Adayı ve UI/UX Tasarımcısı.">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
-  
-  <!-- Fonts -->
+  <title>Arda Utancak — Front-End Developer &amp; UI Engineer</title>
+  <meta name="description" content="Arda Utancak — Yüksek performanslı web arayüzleri, Supabase Realtime uygulamaları ve 60 FPS Canvas/WebGL deneyimleri geliştiren Front-End Geliştirici.">
+  <meta name="theme-color" content="#f7f7f5">
+  <meta property="og:title" content="Arda Utancak — Front-End Developer &amp; UI Engineer">
+  <meta property="og:description" content="Kullanıcı odaklı, erişilebilir ve yüksek performanslı modern web uygulamaları portfolyosu.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="tr_TR">
+
+  <!-- Geometric Monogram Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111114' stroke='%2327272a' stroke-width='2'/%3E%3Cpath d='M18 46L27.5 18H33.5L43 46H37.2L35.1 39.4H25.9L23.8 46H18ZM27.3 34.6H33.7L30.5 24.4L27.3 34.6Z' fill='%23f4f4f5'/%3E%3Ccircle cx='47' cy='43' r='4' fill='%23d97706'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts: Bricolage Grotesque, Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a href="#icerik" class="skip-link">Ana içeriğe atla</a>
+  <div class="cursor-ambient" aria-hidden="true"></div>
 
-  <!-- AMBIENT GLOW BACKGROUNDS -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
-  <div class="ambient-glow glow-3"></div>
-
-  <!-- NAVIGATION BAR -->
-  <header class="navbar-wrapper">
-    <nav class="navbar">
-      <a href="#anasayfa" class="nav-logo">
-        <span class="logo-text">ARDA<span class="dot">.</span>DEV</span>
+  <!-- ==================== NAVIGATION ==================== -->
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar container" aria-label="Ana gezinme">
+      <a href="#anasayfa" class="nav-logo" aria-label="Arda Utancak Anasayfa">
+        <span class="logo-mark" aria-hidden="true">A<span class="brand-dot">.</span></span>
+        <span class="logo-text">ARDA<span class="brand-dot">.</span>DEV</span>
       </a>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="#anasayfa" class="nav-link active">Anasayfa</a></li>
+        <li><a href="#portfolyo" class="nav-link">Projeler</a></li>
         <li><a href="#hakkimda" class="nav-link">Hakkımda</a></li>
-        <li><a href="#uzmanlik" class="nav-link">Uzmanlık</a></li>
-        <li><a href="#hizmetler" class="nav-link">Hizmetler</a></li>
-        <li><a href="#portfolyo" class="nav-link">Portfolyo</a></li>
+        <li><a href="#uzmanlik" class="nav-link">Yetenekler</a></li>
+        <li><a href="#hizmetler" class="nav-link">Yaklaşım</a></li>
         <li><a href="#iletisim" class="nav-link">İletişim</a></li>
       </ul>
 
       <div class="nav-actions">
-        <a href="#iletisim" class="btn btn-primary btn-sm">
+        <button
+          type="button"
+          class="cmdk-trigger"
+          id="cmdkTrigger"
+          aria-label="Hızlı komut paletini aç (Ctrl+K)"
+          aria-haspopup="dialog"
+          aria-controls="cmdkModal"
+        >
+          <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+          </svg>
+          <span class="cmdk-trigger-label">Ara</span>
+          <kbd class="kbd-hint" id="cmdkShortcutHint">Ctrl K</kbd>
+        </button>
+
+        <a href="#iletisim" class="btn btn-primary btn-sm nav-cta">
           <span>İletişime Geç</span>
-          <i class="fa-solid fa-arrow-right"></i>
+          <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
         </a>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Menüyü Aç/Kapat">
-          <i class="fa-solid fa-bars"></i>
+
+        <button
+          type="button"
+          class="mobile-toggle"
+          id="mobileToggle"
+          aria-label="Gezinme menüsünü aç"
+          aria-expanded="false"
+          aria-controls="navLinks"
+        >
+          <svg class="icon icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/>
+          </svg>
+          <svg class="icon icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+          </svg>
         </button>
       </div>
     </nav>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   </header>
 
-  <!-- ==================== 01. HERO SECTION ==================== -->
-  <section class="hero-section" id="anasayfa">
-    <div class="container hero-container">
-      
-      <div class="hero-content">
-        <!-- Status Badge -->
-        <div class="status-badge">
-          <span class="status-dot"></span>
-          <span>Müsait — Yeni Projelere & Fırsatlara Açık</span>
-        </div>
+  <main id="icerik">
 
-        <!-- Main Headline -->
-        <h1 class="hero-title">
-          Modern Web Deneyimlerini <br>
-          <span class="gradient-text">Kullanıcı Odaklı</span> Geliştiriyorum
-        </h1>
+    <!-- ==================== 01. HERO ==================== -->
+    <section class="hero-section" id="anasayfa">
+      <div class="container hero-grid">
 
-        <!-- Subtitle -->
-        <p class="hero-desc">
-          Merhaba, ben <strong>Arda Utancak</strong>. Yüksek performanslı, mobil uyumlu, gerçek zamanlı (realtime) web arayüzleri ve interaktif Canvas/WebGL deneyimleri inşa eden bir Front-End geliştiriciyim.
-        </p>
-
-        <!-- CTA Action Buttons -->
-        <div class="hero-cta">
-          <a href="#portfolyo" class="btn btn-primary">
-            <span>Projelerimi İncele</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
-          <a href="#iletisim" class="btn btn-secondary">
-            <i class="fa-regular fa-paper-plane"></i>
-            <span>Birlikte Çalışalım</span>
-          </a>
-        </div>
-
-        <div class="hero-meta">
-          <span class="meta-item"><i class="fa-solid fa-bolt"></i> Hızlı Yüklenme & Temiz Kod</span>
-          <span class="meta-item"><i class="fa-solid fa-shield-halved"></i> Supabase & Realtime</span>
-          <span class="meta-item"><i class="fa-solid fa-mobile-screen"></i> %100 Duyarlı (Responsive)</span>
-        </div>
-      </div>
-
-      <!-- INTERACTIVE TERMINAL -->
-      <div class="hero-terminal">
-        <div class="terminal-card">
-          <div class="terminal-header">
-            <div class="terminal-buttons">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-            </div>
-            <div class="terminal-title">
-              <i class="fa-solid fa-terminal"></i>
-              <span>arda_utancak.sh — bash</span>
-            </div>
-            <div class="terminal-status">ONLINE</div>
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>Yeni projeler ve front-end fırsatlarına açık · İzmir</span>
           </div>
 
-          <div class="terminal-body" id="terminalBody">
-            <div class="term-line prompt-line">
-              <span class="term-user">root@arda</span>:<span class="term-dir">~</span>$ <span class="term-cmd">./portfolio.sh --profile</span>
+          <h1 class="hero-title">
+            Hızlı, ölçeklenebilir<br>
+            <span class="hero-title-accent">web arayüzleri</span> inşa ediyorum.
+          </h1>
+
+          <p class="hero-desc">
+            Merhaba, ben <strong>Arda Utancak</strong>. Modern JavaScript (ES6+), Supabase Realtime veri akışları ve sıfır bağımlılıklı 60 FPS Canvas/WebGL deneyimleri geliştiren bir Front-End geliştiriciyim.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#portfolyo" class="btn btn-primary">
+              <span>Projeleri İncele</span>
+              <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="#iletisim" class="btn btn-secondary">
+              <span>İletişime Geç</span>
+            </a>
+
+            <div class="hero-socials" aria-label="Sosyal bağlantılar">
+              <a href="https://github.com/ArdaaaU" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="GitHub Profili">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/in/arda-utancak-b67753432/" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="LinkedIn Profili">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
+                </svg>
+              </a>
+              <a href="mailto:ardautancak2@gmail.com" class="icon-btn" aria-label="E-posta Gönder">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+              </a>
             </div>
-            <div class="term-output">
-              <div class="term-row"><span class="t-key">> Geliştirici:</span> <span class="t-val highlight">Arda Utancak</span></div>
-              <div class="term-row"><span class="t-key">> Unvan:</span> <span class="t-val">Front-End Developer & UI/UX</span></div>
-              <div class="term-row"><span class="t-key">> Eğitim:</span> <span class="t-val">Manisa Celal Bayar Üniv. (Web Tasarım)</span></div>
-              <div class="term-row"><span class="t-key">> Lise / Temel:</span> <span class="t-val">Çiğli BİST MTAL — C# / OOP & Java</span></div>
-              <div class="term-row"><span class="t-key">> Staj Deneyimi:</span> <span class="t-val">Uniteks IT (Help Desk & Network)</span></div>
-              <div class="term-row"><span class="t-key">> Canlı Projeler:</span> <span class="t-val teal">10+ Vercel & GitHub Yayını</span></div>
-              <div class="term-row"><span class="t-key">> Lokasyon:</span> <span class="t-val">İzmir, Türkiye (Remote / Hibrit)</span></div>
-              <div class="term-row"><span class="t-key">> Sistem Durumu:</span> <span class="t-val success">Kodlamaya Hazır! 🚀</span></div>
+          </div>
+
+          <!-- Engineering Proof Strip -->
+          <dl class="hero-proof">
+            <div class="proof-item">
+              <dt>Yayında Proje</dt>
+              <dd class="tabular">8+ Vercel &amp; GitHub</dd>
             </div>
-            <div class="term-line input-line">
-              <span class="term-user">root@arda</span>:<span class="term-dir">~</span>$ <span class="cursor-blink">_</span>
+            <div class="proof-item">
+              <dt>Grafik Motoru</dt>
+              <dd class="tabular">60 FPS Canvas &amp; WebGL</dd>
+            </div>
+            <div class="proof-item">
+              <dt>Veri Senkronizasyonu</dt>
+              <dd>Supabase &amp; WebSockets</dd>
+            </div>
+            <div class="proof-item">
+              <dt>Sistem Temeli</dt>
+              <dd>IT Help Desk &amp; Ağ</dd>
+            </div>
+          </dl>
+
+          <p class="hero-shortcut-hint">
+            <span>Hızlı gezinme ve eylemler için</span>
+            <button type="button" class="inline-kbd-btn" data-open-cmdk>
+              <kbd class="kbd-hint" data-cmdk-kbd>Ctrl K</kbd>
+            </button>
+            <span>kullanabilirsiniz.</span>
+          </p>
+        </div>
+
+        <!-- Interactive Terminal -->
+        <div class="hero-terminal">
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots" aria-hidden="true">
+                <span class="t-dot"></span>
+                <span class="t-dot"></span>
+                <span class="t-dot"></span>
+              </div>
+              <div class="terminal-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/>
+                </svg>
+                <span>arda@izmir: ~/portfolio</span>
+              </div>
+              <span class="terminal-badge">bash</span>
+            </div>
+
+            <div class="terminal-commands" role="toolbar" aria-label="Hızlı terminal komutları">
+              <button type="button" class="cmd-chip" data-cmd="whoami">whoami</button>
+              <button type="button" class="cmd-chip" data-cmd="stack">stack</button>
+              <button type="button" class="cmd-chip" data-cmd="projects">projects</button>
+              <button type="button" class="cmd-chip" data-cmd="exp">exp</button>
+              <button type="button" class="cmd-chip" data-cmd="contact">contact</button>
+              <button type="button" class="cmd-chip" data-cmd="clear">clear</button>
+            </div>
+
+            <div class="terminal-body" id="terminalBody">
+              <div class="terminal-output" id="terminalOutput" aria-live="polite">
+                <div class="term-entry">
+                  <div class="term-line">
+                    <span class="term-user">arda@izmir</span><span class="term-sep">:</span><span class="term-dir">~</span><span class="term-sep">$</span>
+                    <span class="term-cmd">whoami</span>
+                  </div>
+                  <div class="term-block">
+                    <div class="term-row"><span class="t-key">Geliştirici</span><span class="t-val highlight">Arda Utancak</span></div>
+                    <div class="term-row"><span class="t-key">Odak</span><span class="t-val">Front-End Developer &amp; UI Engineer</span></div>
+                    <div class="term-row"><span class="t-key">Üniversite</span><span class="t-val">Manisa Celal Bayar Üniv. (Web Tasarım)</span></div>
+                    <div class="term-row"><span class="t-key">Temel</span><span class="t-val">Çiğli BİST MTAL — C# / Java OOP</span></div>
+                    <div class="term-row"><span class="t-key">Staj</span><span class="t-val">Uniteks IT (Help Desk &amp; Network)</span></div>
+                    <div class="term-row"><span class="t-key">Canlı Yayın</span><span class="t-val accent">8+ Vercel &amp; GitHub Projesi</span></div>
+                    <div class="term-row"><span class="t-key">Konum</span><span class="t-val">İzmir, Türkiye (Remote / Hibrit)</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <form class="terminal-form" id="terminalForm" autocomplete="off">
+                <label for="terminalInput" class="sr-only">Terminal komutu girin</label>
+                <span class="term-prompt" aria-hidden="true">
+                  <span class="term-user">arda@izmir</span><span class="term-sep">:</span><span class="term-dir">~</span><span class="term-sep">$</span>
+                </span>
+                <input
+                  id="terminalInput"
+                  class="terminal-input"
+                  type="text"
+                  autocomplete="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  placeholder="help yazıp Enter'a basın..."
+                >
+              </form>
             </div>
           </div>
         </div>
+
       </div>
+    </section>
 
-    </div>
+    <!-- ==================== 02. SELECTED PROJECTS ==================== -->
+    <section class="section portfolio-section" id="portfolyo">
+      <div class="container">
 
-    <!-- Scroll Indicator -->
-    <a href="#hakkimda" class="scroll-indicator">
-      <div class="mouse-icon">
-        <div class="mouse-wheel"></div>
-      </div>
-      <span>AŞAĞI KAYDIR</span>
-    </a>
-  </section>
+        <div class="section-header reveal">
+          <div class="section-tag">01 / SEÇİLİ PROJELER</div>
+          <h2 class="section-title">Üretimdeki <span class="title-muted">Web Uygulamaları</span> ve Deneyimler</h2>
+          <p class="section-subtitle">
+            Gerçek zamanlı panellerden sıfır kütüphaneli 60 FPS Canvas motorlarına kadar Vercel ve GitHub üzerinde incelenebilir çalışmalar.
+          </p>
+        </div>
 
-  <!-- ==================== 02. ABOUT ME ==================== -->
-  <section class="section about-section" id="hakkimda">
-    <div class="container">
-      
-      <div class="section-tag">// 01. BEN KİMİM?</div>
-      <h2 class="section-title">Modern Web Teknolojilerini <span class="gradient-text">Kullanıcı Deneyimi</span> ile Buluşturuyorum</h2>
+        <div class="portfolio-filters reveal" role="group" aria-label="Proje kategorileri">
+          <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">
+            Tümü <span class="filter-count tabular">8</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="web" aria-pressed="false">
+            Web Uygulamaları <span class="filter-count tabular">4</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="simulation" aria-pressed="false">
+            Grafik &amp; Simülasyon <span class="filter-count tabular">2</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="uiux" aria-pressed="false">
+            UI/UX &amp; Vitrin <span class="filter-count tabular">2</span>
+          </button>
+        </div>
+        <div id="filterStatus" class="sr-only" aria-live="polite"></div>
 
-      <div class="about-grid">
-        
-        <!-- Left: Image & Badge -->
-        <div class="about-image-col">
-          <div class="about-image-card">
-            <img src="assets/arda.jpg" alt="Arda Utancak" class="about-photo">
-            <div class="about-badge-floating">
-              <i class="fa-solid fa-code"></i>
-              <div>
-                <strong>Front-End Odaklı</strong>
-                <span>Saf JavaScript & Supabase</span>
+        <div class="projects-grid" id="projectsGrid">
+
+          <!-- FEATURED 1: TURNUVA AĞACI -->
+          <article class="project-card project-card--featured spotlight-card reveal" data-category="web">
+            <div class="project-thumb-wrapper">
+              <img
+                src="assets/turnuva.jpg"
+                alt="Futbol Turnuva Ağacı canlı eleme tablosu ve şampiyonluk paneli ekran görüntüsü"
+                width="1000"
+                height="513"
+                class="project-thumb"
+                loading="lazy"
+              >
+              <span class="project-badge">Supabase Realtime</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-index tabular">01</span>
+                <span class="project-kicker">Öne Çıkan · Web Uygulaması</span>
+              </div>
+              <h3 class="project-title">Futbol Turnuva Ağacı &amp; Canlı İstatistik</h3>
+              <p class="project-desc">
+                5 takımlı eleme ağacı, Supabase WebSockets üzerinden anlık skor senkronizasyonu ve otomatik puan/gol krallığı hesaplama motoru.
+              </p>
+              <ul class="project-bullets">
+                <li>Sayfa yenilemesi olmadan tüm istemcilerde eşzamanlı skor ve fikstür güncellemesi</li>
+                <li>34 oyunculu gol krallığı ve averaj tablosunun ilişkisel veriden otomatik türetilmesi</li>
+              </ul>
+              <div class="project-tags">
+                <span>JavaScript ES6+</span>
+                <span>Supabase</span>
+                <span>PostgreSQL</span>
+                <span>WebSockets</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://turnuvaagac.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>Canlı Demo</span>
+                  <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
+                  </svg>
+                </a>
+                <a href="https://github.com/ArdaaaU/Turnuva-A-ac-" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>GitHub</span>
+                </a>
+                <button type="button" class="btn btn-ghost btn-sm" data-project="turnuva">
+                  Mimari Detay
+                </button>
               </div>
             </div>
-          </div>
+          </article>
+
+          <!-- FEATURED 2: ASCII KNIGHT -->
+          <article class="project-card project-card--featured spotlight-card reveal" data-category="simulation">
+            <div class="project-thumb-wrapper">
+              <img
+                src="assets/ascii_knight.jpg"
+                alt="ASCII Knight gerçek zamanlı Canvas pelerin fiziği ve kontrol paneli ekran görüntüsü"
+                width="1000"
+                height="513"
+                class="project-thumb"
+                loading="lazy"
+              >
+              <span class="project-badge">Canvas &amp; Web Audio</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-index tabular">02</span>
+                <span class="project-kicker">Öne Çıkan · Grafik &amp; Simülasyon</span>
+              </div>
+              <h3 class="project-title">ASCII Knight Fizik &amp; Ses Motoru</h3>
+              <p class="project-desc">
+                Sıfır harici kütüphane ile geliştirilmiş gerçek zamanlı ASCII karakter rasterizasyon, pelerin fiziği ve prosedürel rüzgar sentezi motoru.
+              </p>
+              <ul class="project-bullets">
+                <li><code>Uint32Array</code> bellek tamponu üzerinde 60 FPS karakter rasterizasyonu ve Bézier kumaş fiziği</li>
+                <li>Web Audio API pembe gürültü ve biquad filtrelerle dinamik rüzgar sesi sentezi</li>
+              </ul>
+              <div class="project-tags">
+                <span>HTML5 Canvas</span>
+                <span>Saf JavaScript</span>
+                <span>Web Audio API</span>
+                <span>Uint32Array</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://ascii-knight.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>Canlı Demo</span>
+                  <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
+                  </svg>
+                </a>
+                <a href="https://github.com/ArdaaaU/ascii-knight" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>GitHub</span>
+                </a>
+                <button type="button" class="btn btn-ghost btn-sm" data-project="ascii-knight">
+                  Mimari Detay
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARCHIVE 3: KYK YEMEK -->
+          <article class="project-card spotlight-card reveal" data-category="web">
+            <div class="project-thumb-wrapper project-thumb-wrapper--framed">
+              <img
+                src="assets/kyk.jpg"
+                alt="KYK Yemek Portalı aylık menü ve öğün filtreleme ekran görüntüsü"
+                width="413"
+                height="325"
+                class="project-thumb project-thumb--contained"
+                loading="lazy"
+              >
+              <span class="project-badge">Mobil Öncelikli</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-index tabular">03</span>
+                <span class="project-kicker">Web Uygulaması</span>
+              </div>
+              <h3 class="project-title">KYK Yemek Portalı &amp; Kalori Takibi</h3>
+              <p class="project-desc">
+                Yurt ağlarındaki düşük bant genişliğinde dahi anında yüklenen, öğrencilerin günlük ve aylık menülere tek ekranda eriştiği hafif arayüz.
+              </p>
+              <div class="project-tags">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>Bootstrap</span>
+                <span>Figma</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://kykyemek.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>Canlı Demo</span>
+                  <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
+                  </svg>
+                </a>
+                <a href="https://github.com/ArdaaaU/KykYemek" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>GitHub</span>
+                </a>
+                <button type="button" class="btn btn-ghost btn-sm" data-project="kyk">
+                  Detay
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARCHIVE 4: CYBER SHIELD -->
+          <article class="project-card spotlight-card reveal" data-category="uiux">
+            <div class="project-thumb-wrapper">
+              <img
+                src="assets/siber.jpg"
+                alt="Cyber Shield siber zorbalık rehberi ve vaka simülasyonu arayüzü"
+                width="660"
+                height="600"
+                class="project-thumb project-thumb--top"
+                loading="lazy"
+              >
+              <span class="project-badge">WCAG Erişilebilir</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-index tabular">04</span>
+                <span class="project-kicker">UI/UX &amp; Vitrin</span>
+              </div>
+              <h3 class="project-title">Cyber Shield — Siber Zorbalık Rehberi</h3>
+              <p class="project-desc">
+                Genç kullanıcıları çevrimiçi riskler konusunda bilinçlendiren, vaka simülasyonları içeren WCAG uyumlu pedagojik eğitim platformu.
+              </p>
+              <div class="project-tags">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>Bootstrap</span>
+                <span>WCAG UI/UX</span>
+                <span>Figma</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://siberzorbalik.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>Canlı Demo</span>
+                  <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
+                  </svg>
+                </a>
+                <a href="https://github.com/ArdaaaU/siberZorbalik" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>GitHub</span>
+                </a>
+                <button type="button" class="btn btn-ghost btn-sm" data-project="cyber-shield">
+                  Detay
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARCHIVE 5: COREMAX -->
+          <article class="project-card spotlight-card reveal" data-category="uiux">
+            <div class="project-thumb-wrapper">
+              <img
+                src="assets/coremax.jpg"
+                alt="CoreMax oyuncu donanımları e-ticaret vitrin arayüzü"
+                width="962"
+                height="600"
+                class="project-thumb"
+                loading="lazy"
+              >
+              <span class="project-badge">E-Ticaret Vitrini</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-index tabular">05</span>
+                <span class="project-kicker">UI/UX &amp; Vitrin</span>
+              </div>
+              <h3 class="project-title">CoreMax — Oyuncu Ekipmanları Vitrini</h3>
+              <p class="project-desc">
+                Bilgisayar donanımları odaklı konsept teknoloji markası için kurgulanan görsel kimlik, tipografik hiyerarşi ve ürün kataloğu arayüzü.
+              </p>
+              <div class="project-tags">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>Bootstrap</span>
+                <span>Kurumsal Kimlik</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://coremaxtech.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>Canlı Demo</span>
+                  <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
+                  </svg>
+                </a>
+                <a href="https://github.com/ArdaaaU/Coremax" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>GitHub</span>
+                </a>
+                <button type="button" class="btn btn-ghost btn-sm" data-project="coremax">
+                  Detay
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARCHIVE 6: DERS PROGRAMI (Bespoke HTML/CSS Architectural UI Preview) -->
+          <article class="project-card spotlight-card reveal" data-category="web">
+            <div class="project-thumb-wrapper project-preview-stage" aria-hidden="true">
+              <div class="preview-schedule">
+                <div class="ps-topbar">
+                  <span class="ps-title">dersprog · 2. Sınıf Güz</span>
+                  <span class="ps-pill">Dark / Light Sync</span>
+                </div>
+                <div class="ps-days">
+                  <span>PZT</span>
+                  <span class="is-today">SAL · BUGÜN</span>
+                  <span>ÇAR</span>
+                  <span>PER</span>
+                </div>
+                <div class="ps-grid">
+                  <div class="ps-slot">
+                    <span class="ps-time">09:30</span>
+                    <strong>Web Programlama II</strong>
+                  </div>
+                  <div class="ps-slot is-active">
+                    <span class="ps-time">11:15 · Aktif</span>
+                    <strong>İleri JavaScript ES6+</strong>
+                  </div>
+                  <div class="ps-slot">
+                    <span class="ps-time">14:00</span>
+                    <strong>Veritabanı Yönetimi</strong>
+                  </div>
+                  <div class="ps-slot">
+                    <span class="ps-time">16:00 · Sınav</span>
+                    <strong>Vize Takip Modülü</strong>
+                  </div>
+                </div>
+              </div>
+              <span class="project-badge">Vanilla JS &amp; LocalStorage</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-index tabular">06</span>
+                <span class="project-kicker">Web Uygulaması</span>
+              </div>
+              <h3 class="project-title">Web Tasarım &amp; Kodlama Ders Takvimi</h3>
+              <p class="project-desc">
+                Saf JavaScript ve LocalStorage ile geliştirilen; otomatik gün tespiti, dinamik Dark/Light tema senkronizasyonu ve sınav sayacı sunan takvim uygulaması.
+              </p>
+              <div class="project-tags">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript ES6+</span>
+                <span>LocalStorage</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://dersprog.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>Canlı Demo</span>
+                  <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
+                  </svg>
+                </a>
+                <a href="https://github.com/ArdaaaU/Ders-Program-" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>GitHub</span>
+                </a>
+                <button type="button" class="btn btn-ghost btn-sm" data-project="ders-programi">
+                  Detay
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARCHIVE 7: JET ENGINE 3D (Bespoke SVG Aerospace Turbine Wireframe & Telemetry HUD) -->
+          <article class="project-card spotlight-card reveal" data-category="simulation">
+            <div class="project-thumb-wrapper project-preview-stage" aria-hidden="true">
+              <div class="preview-turbine">
+                <svg class="turbine-svg" viewBox="0 0 420 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <pattern id="turbineGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+                      <path d="M 24 0 L 0 0 0 24" stroke="rgba(255,255,255,0.045)" stroke-width="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="420" height="230" fill="url(#turbineGrid)"/>
+                  <ellipse cx="148" cy="115" rx="68" ry="68" stroke="rgba(255,255,255,0.14)" stroke-width="1.2"/>
+                  <ellipse cx="148" cy="115" rx="52" ry="52" stroke="rgba(251,191,36,0.45)" stroke-width="1.2" stroke-dasharray="4 4"/>
+                  <ellipse cx="148" cy="115" rx="18" ry="18" fill="rgba(251,191,36,0.12)" stroke="#fbbf24" stroke-width="1.4"/>
+                  <path d="M148 47V97M148 133V183M80 115H130M166 115H216M100 67L135 102M161 128L196 163M196 67L161 102M135 128L100 163" stroke="rgba(244,244,245,0.34)" stroke-width="1.2"/>
+                  <path d="M196 58L326 76L364 95V135L326 154L196 172" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/>
+                  <path d="M235 64V166M275 69V161M315 75V155" stroke="rgba(251,191,36,0.28)" stroke-width="1" stroke-dasharray="3 3"/>
+                  <line x1="60" y1="115" x2="380" y2="115" stroke="rgba(251,191,36,0.35)" stroke-width="1" stroke-dasharray="6 4"/>
+                </svg>
+                <div class="turbine-hud">
+                  <span class="hud-chip">ORBIT CAM · GLB</span>
+                  <span class="hud-chip is-accent">60 FPS · WebGL</span>
+                </div>
+              </div>
+              <span class="project-badge">Three.js / WebGL</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-index tabular">07</span>
+                <span class="project-kicker">Grafik &amp; Simülasyon</span>
+              </div>
+              <h3 class="project-title">Jet Engine 3D Showcase (ucakmotor)</h3>
+              <p class="project-desc">
+                Three.js ve GLTF/GLB modelleriyle gerçek zamanlı 3B jet motoru inceleme, yörünge kamera kontrolleri ve havacılık telemetri arayüzü.
+              </p>
+              <div class="project-tags">
+                <span>Three.js</span>
+                <span>WebGL</span>
+                <span>GLTF/GLB</span>
+                <span>JavaScript</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/ArdaaaU/ucakmotor" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>GitHub Deposu</span>
+                  <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
+                  </svg>
+                </a>
+                <button type="button" class="btn btn-ghost btn-sm" data-project="ucakmotor">
+                  Mimari Detay
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARCHIVE 8: OBS SİSTEMİ (Bespoke HTML/CSS 3-Role RBAC Dashboard Preview) -->
+          <article class="project-card spotlight-card reveal" data-category="web">
+            <div class="project-thumb-wrapper project-preview-stage" aria-hidden="true">
+              <div class="preview-obs">
+                <div class="obs-head">
+                  <span class="obs-brand">OBS · RBAC Portal</span>
+                  <div class="obs-roles">
+                    <span>Admin</span>
+                    <span class="is-active">Akademisyen</span>
+                    <span>Öğrenci</span>
+                  </div>
+                </div>
+                <div class="obs-table">
+                  <div class="obs-row is-header">
+                    <span>DERS KODU</span><span>VİZE</span><span>FİNAL</span><span>DURUM</span>
+                  </div>
+                  <div class="obs-row">
+                    <span>WTK-204</span><span class="tabular">84</span><span class="tabular">92</span><span class="obs-pass">Geçti</span>
+                  </div>
+                  <div class="obs-row">
+                    <span>WTK-208</span><span class="tabular">78</span><span class="tabular">88</span><span class="obs-pass">Geçti</span>
+                  </div>
+                  <div class="obs-row">
+                    <span>WTK-212</span><span class="tabular">90</span><span class="tabular">95</span><span class="obs-pass">Geçti</span>
+                  </div>
+                </div>
+              </div>
+              <span class="project-badge">Flask &amp; SQLite</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-index tabular">08</span>
+                <span class="project-kicker">Web Uygulaması</span>
+              </div>
+              <h3 class="project-title">Öğrenci Bilgi Sistemi (OBS)</h3>
+              <p class="project-desc">
+                Admin, Akademisyen ve Öğrenci rollerini ayıran yetkilendirme mimarisi; ders atama, vize/final not girişi ve devamsızlık takip sistemi.
+              </p>
+              <div class="project-tags">
+                <span>Python (Flask)</span>
+                <span>SQLite</span>
+                <span>HTML5</span>
+                <span>CSS3</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/ArdaaaU/OBS-sistemi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>GitHub Deposu</span>
+                  <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
+                  </svg>
+                </a>
+                <button type="button" class="btn btn-ghost btn-sm" data-project="obs">
+                  Mimari Detay
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 02. ABOUT & TIMELINE ==================== -->
+    <section class="section about-section" id="hakkimda">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-tag">02 / HAKKIMDA &amp; DENEYİM</div>
+          <h2 class="section-title">Disiplinli <span class="title-muted">mühendislik</span> ve net arayüzler.</h2>
         </div>
 
-        <!-- Right: Text & Stats -->
-        <div class="about-text-col">
-          <p class="lead-text">
-            Yazılım serüvenime lise yıllarında <strong>Çiğli Borsa İstanbul Mesleki ve Teknik Anadolu Lisesi</strong>'nde <strong>Visual Studio</strong> ile <strong>C#</strong> ve <strong>Java</strong> dillerinde Nesne Yönelimli Programlama (OOP) ve veritabanı altyapıları inşa ederek başladım.
-          </p>
-          <p>
-            Kurumsal sektöre ilk adımımı <strong>Uniteks IT Departmanı</strong>'nda atarak donanım kurulumları, Help Desk kullanıcı desteği ve TCP/IP ağ yapılandırmaları süreçlerini deneyimledim.
-          </p>
-          <p>
-            Şu an <strong>Manisa Celal Bayar Üniversitesi — Web Tasarımı ve Kodlama</strong> programında modern web ekosistemine (JavaScript ES6+, Supabase Realtime, HTML5 Canvas ve Three.js) odaklanarak eğitimime devam ediyor; geliştirdiğim projeleri doğrudan <strong>Vercel</strong> üzerinde canlıya alıyorum.
-          </p>
-
-          <!-- 4 Stats Cards -->
-          <div class="about-stats-grid">
-            <div class="stat-card">
-              <div class="stat-number gradient-text">10+</div>
-              <div class="stat-label">Yayında Web Projesi</div>
+        <div class="about-grid">
+          <div class="about-portrait-card reveal">
+            <div class="about-photo-frame">
+              <img
+                src="assets/arda.jpg"
+                alt="Arda Utancak portre fotoğrafı"
+                width="540"
+                height="800"
+                class="about-photo"
+                loading="lazy"
+              >
             </div>
-            <div class="stat-card">
-              <div class="stat-number gradient-text">%100</div>
-              <div class="stat-label">Mobil Uyumlu & Responsive</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number gradient-text">60 FPS</div>
-              <div class="stat-label">Canvas & WebGL Performansı</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number gradient-text">IT & Ağ</div>
-              <div class="stat-label">Kurumsal Altyapı Deneyimi</div>
+            <div class="about-photo-caption">
+              <div>
+                <strong>Arda Utancak</strong>
+                <span>Front-End Developer · İzmir, TR</span>
+              </div>
+              <span class="caption-index tabular">01</span>
             </div>
           </div>
 
+          <div class="about-text-col reveal">
+            <p class="lead-text">
+              Yazılım temellerimi <strong>Çiğli Borsa İstanbul MTAL</strong>'de <strong>C#</strong> ve <strong>Java</strong> ile Nesne Yönelimli Programlama (OOP) ve ilişkisel veritabanı mimarileri kurarak attım; ardından <strong>Uniteks IT Departmanı</strong> stajımda donanım, Help Desk ve TCP/IP ağ yönetimi deneyimi kazandım.
+            </p>
+            <p>
+              Şu anda <strong>Manisa Celal Bayar Üniversitesi — Web Tasarımı ve Kodlama</strong> programında eğitimime devam ediyor; harici bağımlılıklardan arındırılmış JavaScript ES6+, Supabase Realtime, HTML5 Canvas ve Three.js projeleri geliştirip <strong>Vercel</strong> üzerinde canlıya alıyorum.
+            </p>
+
+            <ol class="timeline">
+              <li class="timeline-item">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-content">
+                  <span class="timeline-period">Devam Ediyor · Üniversite</span>
+                  <h3>Manisa Celal Bayar Üniversitesi</h3>
+                  <p>Web Tasarımı ve Kodlama — Modern Front-End, Supabase Realtime, Canvas/WebGL ve Vercel dağıtım süreçleri.</p>
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-content">
+                  <span class="timeline-period">Kurumsal Staj · IT &amp; Ağ</span>
+                  <h3>Uniteks IT Departmanı</h3>
+                  <p>Kurumsal donanım kurulumları, son kullanıcı Help Desk desteği ve TCP/IP, DHCP, DNS ağ yapılandırmaları.</p>
+                </div>
+              </li>
+              <li class="timeline-item">
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-content">
+                  <span class="timeline-period">Lise Temeli · Yazılım</span>
+                  <h3>Çiğli Borsa İstanbul MTAL</h3>
+                  <p>Visual Studio ile C# ve Java üzerinde Nesne Yönelimli Programlama (OOP), algoritma ve veritabanı altyapıları.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
         </div>
 
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- ==================== 04. TECH STACK MATRIX ==================== -->
+    <section class="section skills-section" id="uzmanlik">
+      <div class="container">
 
-  <!-- ==================== 03. TECH STACK / EXPERTISE ==================== -->
-  <section class="section skills-section" id="uzmanlik">
-    <div class="container">
-      
-      <div class="section-tag">// 02. TEKNOLOJİ & YETKİNLİKLER</div>
-      <h2 class="section-title">Uzmanlık Alanlarım ve <span class="gradient-text">Kullandığım Teknolojiler</span></h2>
-      <p class="section-subtitle">
-        Projenin gereksinimine göre modern, hafif ve yüksek performanslı kütüphanelerle çalışıyorum.
-      </p>
-
-      <div class="skills-grid-cards">
-        
-        <!-- Kart 1: Front-End -->
-        <div class="skill-box">
-          <div class="skill-box-header">
-            <div class="skill-icon-wrapper cyan">
-              <i class="fa-solid fa-code"></i>
-            </div>
-            <div>
-              <h3>Front-End & UI Geliştirme</h3>
-              <p>Modern web arayüzleri & etkileşimli mimariler</p>
-            </div>
-          </div>
-          <div class="skill-tags">
-            <span class="tag">HTML5 Semantic</span>
-            <span class="tag">CSS3 / Flex & Grid</span>
-            <span class="tag">JavaScript (ES6+)</span>
-            <span class="tag">Bootstrap 5</span>
-            <span class="tag">Three.js / WebGL</span>
-            <span class="tag">HTML5 Canvas 2D</span>
-            <span class="tag">Web Audio API</span>
-            <span class="tag">Figma UI/UX</span>
-          </div>
-        </div>
-
-        <!-- Kart 2: Backend & BaaS -->
-        <div class="skill-box">
-          <div class="skill-box-header">
-            <div class="skill-icon-wrapper blue">
-              <i class="fa-solid fa-database"></i>
-            </div>
-            <div>
-              <h3>BaaS, Backend & Veritabanı</h3>
-              <p>Gerçek zamanlı senkronizasyon & veri yönetimi</p>
-            </div>
-          </div>
-          <div class="skill-tags">
-            <span class="tag">Supabase Realtime</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">MySQL İlişkisel DB</span>
-            <span class="tag">Python (Flask)</span>
-            <span class="tag">SQLite</span>
-            <span class="tag">RESTful APIs</span>
-            <span class="tag">WebSockets</span>
-          </div>
-        </div>
-
-        <!-- Kart 3: OOP & Diller -->
-        <div class="skill-box">
-          <div class="skill-box-header">
-            <div class="skill-icon-wrapper purple">
-              <i class="fa-solid fa-cubes"></i>
-            </div>
-            <div>
-              <h3>OOP & Yazılım Temelleri</h3>
-              <p>Nesne yönelimli mimari & algoritmalar</p>
-            </div>
-          </div>
-          <div class="skill-tags">
-            <span class="tag">C# (Visual Studio)</span>
-            <span class="tag">Nesne Yönelimli Programlama (OOP)</span>
-            <span class="tag">Java Temelleri</span>
-            <span class="tag">Algoritma & Veri Yapıları</span>
-            <span class="tag">Temiz Kod (Clean Code)</span>
-          </div>
-        </div>
-
-        <!-- Kart 4: Network & DevOps -->
-        <div class="skill-box">
-          <div class="skill-box-header">
-            <div class="skill-icon-wrapper green">
-              <i class="fa-solid fa-network-wired"></i>
-            </div>
-            <div>
-              <h3>Network, Sistem & Dağıtım</h3>
-              <p>Kurumsal ağ yönetimi & modern deploy</p>
-            </div>
-          </div>
-          <div class="skill-tags">
-            <span class="tag">Network (TCP/IP, DHCP, DNS)</span>
-                        <span class="tag">Git & GitHub</span>
-            <span class="tag">Vercel Dağıtım</span>
-            <span class="tag">IT Help Desk & Donanım</span>
-            <span class="tag">Windows OS Kurulum</span>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== 04. SERVICES ==================== -->
-  <section class="section services-section" id="hizmetler">
-    <div class="container">
-      
-      <div class="section-tag">// 03. NELER YAPIYORUM?</div>
-      <h2 class="section-title">Stratejik ve <span class="gradient-text">Performans Odaklı</span> Web Çözümleri</h2>
-      <p class="section-subtitle">
-        Kullanıcıyı yormayan, her ekranda akıcı çalışan ve modern tasarım trendlerine uygun işler üretiyorum.
-      </p>
-
-      <div class="services-grid">
-        
-        <div class="service-card">
-          <div class="service-num">01</div>
-          <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-          <h3>Mobil Öncelikli Web Siteleri</h3>
-          <p>
-            Akıllı telefon, tablet ve geniş masaüstü ekranlarında kusursuz duyarlılık (responsive). Gereksiz kütüphanelerden arındırılmış, anında açılan hafif mimariler.
+        <div class="section-header reveal">
+          <div class="section-tag">03 / TEKNOLOJİ YIĞINI</div>
+          <h2 class="section-title">Kullandığım <span class="title-muted">teknolojiler</span> ve araçlar.</h2>
+          <p class="section-subtitle">
+            Projenin gereksinimine göre hafif, bağımlılık maliyeti düşük ve bakımı kolay araçları tercih ediyorum.
           </p>
         </div>
 
-        <div class="service-card">
-          <div class="service-num">02</div>
-          <div class="service-icon"><i class="fa-solid fa-bolt"></i></div>
-          <h3>Realtime Web Uygulamaları</h3>
-          <p>
-            Supabase WebSockets ve modern JavaScript kullanarak sayfa yenilenmesine gerek kalmadan anlık skor, fikstür ve veri senkronizasyonu sağlayan interaktif paneller.
+        <div class="stack-matrix reveal">
+          <div class="stack-cell">
+            <div class="stack-cell-head">
+              <span class="stack-num tabular">01</span>
+              <div>
+                <h3>Front-End &amp; Arayüz</h3>
+                <p>Semantik yapı, duyarlı düzenler ve yüksek FPS görsel sistemler</p>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="tag">HTML5 Semantic</span>
+              <span class="tag">CSS3 / Grid &amp; Flex</span>
+              <span class="tag">JavaScript (ES6+)</span>
+              <span class="tag">Bootstrap 5</span>
+              <span class="tag">Three.js / WebGL</span>
+              <span class="tag">HTML5 Canvas 2D</span>
+              <span class="tag">Web Audio API</span>
+              <span class="tag">Figma UI/UX</span>
+            </div>
+          </div>
+
+          <div class="stack-cell">
+            <div class="stack-cell-head">
+              <span class="stack-num tabular">02</span>
+              <div>
+                <h3>BaaS, Backend &amp; Veri</h3>
+                <p>Gerçek zamanlı veri akışı, yetkilendirme ve ilişkisel şemalar</p>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="tag">Supabase Realtime</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">MySQL İlişkisel DB</span>
+              <span class="tag">Python (Flask)</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">RESTful APIs</span>
+              <span class="tag">WebSockets</span>
+            </div>
+          </div>
+
+          <div class="stack-cell">
+            <div class="stack-cell-head">
+              <span class="stack-num tabular">03</span>
+              <div>
+                <h3>OOP &amp; Yazılım Temelleri</h3>
+                <p>Okunabilir modüler mimari ve temel algoritma disiplini</p>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="tag">C# (Visual Studio)</span>
+              <span class="tag">Nesne Yönelimli Programlama</span>
+              <span class="tag">Java Temelleri</span>
+              <span class="tag">Algoritma &amp; Veri Yapıları</span>
+              <span class="tag">Temiz Kod (Clean Code)</span>
+            </div>
+          </div>
+
+          <div class="stack-cell">
+            <div class="stack-cell-head">
+              <span class="stack-num tabular">04</span>
+              <div>
+                <h3>Sistem, Ağ &amp; Dağıtım</h3>
+                <p>Kurumsal ağ temelleri, sürüm kontrolü ve bulut yayını</p>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="tag">Network (TCP/IP, DHCP, DNS)</span>
+              <span class="tag">Git &amp; GitHub</span>
+              <span class="tag">Vercel Dağıtım</span>
+              <span class="tag">IT Help Desk &amp; Donanım</span>
+              <span class="tag">Windows OS Kurulum</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 05. ENGINEERING FOCUS ==================== -->
+    <section class="section services-section" id="hizmetler">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-tag">04 / NELER GELİŞTİRİYORUM?</div>
+          <h2 class="section-title">Stratejik ve <span class="title-muted">performans odaklı</span> çözümler.</h2>
+          <p class="section-subtitle">
+            Her ekran boyutunda öngörülebilir çalışan, erişilebilir ve temiz kodlanmış web ürünleri üretiyorum.
           </p>
         </div>
 
-        <div class="service-card">
-          <div class="service-num">03</div>
-          <div class="service-icon"><i class="fa-solid fa-cube"></i></div>
-          <h3>İnteraktif 3D & Canvas Deneyimleri</h3>
-          <p>
-            Three.js / WebGL ile 3B modelleme ve parça analizi; HTML5 Canvas API ile 60 FPS akıcı fizik ve parçacık simülasyonları geliştirebilme yetkinliği.
+        <div class="approach-grid">
+          <article class="approach-card spotlight-card reveal">
+            <div class="approach-top">
+              <div class="approach-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/>
+                </svg>
+              </div>
+              <span class="approach-num tabular">01</span>
+            </div>
+            <h3>Mobil Öncelikli Web Siteleri</h3>
+            <p>
+              Telefon, tablet ve geniş masaüstü ekranlarında sıfır yatay taşma ve yüksek yüklenme hızıyla çalışan, gereksiz paket yükünden arındırılmış arayüzler.
+            </p>
+            <div class="approach-scope">Responsive · Lighthouse · CLS 0</div>
+          </article>
+
+          <article class="approach-card spotlight-card reveal">
+            <div class="approach-top">
+              <div class="approach-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+              </div>
+              <span class="approach-num tabular">02</span>
+            </div>
+            <h3>Realtime Web Uygulamaları</h3>
+            <p>
+              Supabase WebSockets ve modern JavaScript kullanarak sayfa yenilemesi gerektirmeden anlık skor, fikstür ve panel senkronizasyonu sağlayan uygulamalar.
+            </p>
+            <div class="approach-scope">Supabase · WebSockets · PostgreSQL</div>
+          </article>
+
+          <article class="approach-card spotlight-card reveal">
+            <div class="approach-top">
+              <div class="approach-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>
+                </svg>
+              </div>
+              <span class="approach-num tabular">03</span>
+            </div>
+            <h3>İnteraktif 3D &amp; Canvas Deneyimleri</h3>
+            <p>
+              Three.js / WebGL ile 3B model inceleme sahneleri; HTML5 Canvas API ve bellek tamponlarıyla 60 FPS akıcı fizik ve ses simülasyonları.
+            </p>
+            <div class="approach-scope">Canvas 2D · Three.js · 60 FPS</div>
+          </article>
+
+          <article class="approach-card spotlight-card reveal">
+            <div class="approach-top">
+              <div class="approach-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"/>
+                </svg>
+              </div>
+              <span class="approach-num tabular">04</span>
+            </div>
+            <h3>UI/UX Tasarım &amp; Erişilebilirlik</h3>
+            <p>
+              Figma prototiplerinden WCAG kontrast standartlarına, klavye odak halkalarından tutarlı tasarım token'larına kadar üretime hazır arayüz sistemleri.
+            </p>
+            <div class="approach-scope">Figma · WCAG AA · Design Tokens</div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 06. CONTACT ==================== -->
+    <section class="section contact-section" id="iletisim">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-tag">05 / İLETİŞİM</div>
+          <h2 class="section-title">Birlikte <span class="title-muted">çalışalım</span>.</h2>
+          <p class="section-subtitle">
+            Front-End pozisyonları, freelance web projeleri veya teknik fikir alışverişi için doğrudan ulaşabilirsiniz.
           </p>
         </div>
 
-        <div class="service-card">
-          <div class="service-num">04</div>
-          <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
-          <h3>UI/UX Tasarım & Prototipleme</h3>
-          <p>
-            Figma üzerinde modern glassmorphism, karanlık tema ve WCAG erişilebilirlik standartlarına uygun kullanıcı arayüzleri ve interaktif prototipler tasarlama.
-          </p>
+        <div class="contact-grid">
+          <div class="contact-info-col reveal">
+
+            <div class="contact-box">
+              <div class="contact-icon-box" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+              </div>
+              <div class="contact-details">
+                <span class="contact-label">E-Posta Adresi</span>
+                <a href="mailto:ardautancak2@gmail.com" class="contact-val">ardautancak2@gmail.com</a>
+              </div>
+              <button type="button" class="copy-btn" id="copyEmailBtn" data-copy="ardautancak2@gmail.com" aria-label="E-posta adresini kopyala">
+                <svg class="icon-copy" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                </svg>
+                <svg class="icon-check" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="contact-box">
+              <div class="contact-icon-box" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
+                </svg>
+              </div>
+              <div class="contact-details">
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com/ArdaaaU" target="_blank" rel="noopener noreferrer" class="contact-val">github.com/ArdaaaU</a>
+              </div>
+              <a href="https://github.com/ArdaaaU" target="_blank" rel="noopener noreferrer" class="copy-btn" aria-label="GitHub profilini yeni sekmede aç">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
+                </svg>
+              </a>
+            </div>
+
+            <div class="contact-box">
+              <div class="contact-icon-box" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
+                </svg>
+              </div>
+              <div class="contact-details">
+                <span class="contact-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/arda-utancak-b67753432/" target="_blank" rel="noopener noreferrer" class="contact-val">linkedin.com/in/arda-utancak</a>
+              </div>
+              <a href="https://www.linkedin.com/in/arda-utancak-b67753432/" target="_blank" rel="noopener noreferrer" class="copy-btn" aria-label="LinkedIn profilini yeni sekmede aç">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
+                </svg>
+              </a>
+            </div>
+
+            <div class="contact-box">
+              <div class="contact-icon-box" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="contact-details">
+                <span class="contact-label">Konum</span>
+                <span class="contact-val">İzmir, Türkiye · Remote &amp; Hibrit</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="contact-form-col reveal">
+            <form class="contact-form" id="contactForm" action="https://formsubmit.co/ardautancak2@gmail.com" method="POST" novalidate>
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_subject" value="Yeni Portfolyo Mesajı — ardautancak.vercel.app">
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Adınız Soyadınız</label>
+                  <input type="text" id="name" name="name" autocomplete="name" placeholder="Örn: Ahmet Yılmaz" aria-describedby="nameError" required>
+                  <span class="field-error" id="nameError" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">E-Posta Adresiniz</label>
+                  <input type="email" id="email" name="email" autocomplete="email" placeholder="Örn: ahmet@sirket.com" aria-describedby="emailError" required>
+                  <span class="field-error" id="emailError" role="alert"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Konu</label>
+                <input type="text" id="subject" name="subject" placeholder="Örn: Front-End Pozisyonu / Web Projesi" aria-describedby="subjectError" required>
+                <span class="field-error" id="subjectError" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Mesajınız</label>
+                <textarea id="message" name="message" rows="4" placeholder="Projeniz, ekip yapınız veya iletmek istediğiniz detaylar..." aria-describedby="messageError" required></textarea>
+                <span class="field-error" id="messageError" role="alert"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                <span>Mesajı Gönder</span>
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>
+                </svg>
+              </button>
+
+              <div class="form-status" id="formStatus" aria-live="polite"></div>
+            </form>
+          </div>
         </div>
 
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ==================== 05. PORTFOLIO SHOWCASE ==================== -->
-  <section class="section portfolio-section" id="portfolyo">
-    <div class="container">
-      
-      <div class="section-tag">// 04. PROJELERİM</div>
-      <h2 class="section-title">Geliştirdiğim <span class="gradient-text">Web Uygulamaları</span> ve Projeler</h2>
-      <p class="section-subtitle">
-        Tüm projelerimi Vercel ve GitHub üzerinde canlı olarak inceleyebilirsiniz.
-      </p>
-
-      <!-- Filter Tabs -->
-      <div class="portfolio-filters">
-        <button class="filter-btn active" data-filter="all">Tümü (8)</button>
-        <button class="filter-btn" data-filter="web">Web Uygulamaları</button>
-        <button class="filter-btn" data-filter="simulation">Grafik & Simülasyon</button>
-        <button class="filter-btn" data-filter="uiux">UI/UX & Vitrin</button>
-      </div>
-
-      <!-- Projects Grid -->
-      <div class="projects-grid">
-        
-        <!-- PROJE 1: TURNUVA AĞACI -->
-        <article class="project-card" data-category="web">
-          <div class="project-thumb-wrapper">
-            <img src="assets/turnuva.jpg" alt="Futbol Turnuva Ağacı" class="project-thumb" loading="lazy">
-            <span class="project-badge">Supabase Realtime</span>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">Futbol Turnuva Ağacı & Canlı İstatistik</h3>
-            <p class="project-desc">
-              5 takımlı eleme ağacı, Supabase WebSockets ile anlık skor aktarımı, skorlardan puan tablosuna otomatik hesaplama motoru ve 34 oyunculu gol krallığı takip sistemi.
-            </p>
-            <div class="project-tags">
-              <span>JavaScript ES6+</span>
-              <span>Supabase</span>
-              <span>PostgreSQL</span>
-              <span>Glassmorphism</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://turnuvaagac.vercel.app" target="_blank" class="btn btn-primary btn-sm">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> Canlı Demo
-              </a>
-              <a href="https://github.com/ArdaaaU/Turnuva-A-ac-" target="_blank" class="btn btn-secondary btn-sm">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJE 2: ASCII KNIGHT -->
-        <article class="project-card" data-category="simulation">
-          <div class="project-thumb-wrapper">
-            <img src="assets/ascii_knight.jpg" alt="ASCII Knight" class="project-thumb" loading="lazy">
-            <span class="project-badge purple">Canvas & Web Audio</span>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">ASCII Knight Fizik & Ses Motoru</h3>
-            <p class="project-desc">
-              Sıfır kütüphane; Bézier eğrileriyle pelerin ve kumaş fiziği, 3B perspektifli dinamik çayır, Web Audio API pembe gürültü rüzgar sentezi ve 60 FPS bellek rasterizasyonu.
-            </p>
-            <div class="project-tags">
-              <span>HTML5 Canvas</span>
-              <span>Saf JavaScript</span>
-              <span>Web Audio API</span>
-              <span>Uint32Array</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://ascii-knight.vercel.app" target="_blank" class="btn btn-primary btn-sm">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> Canlı Demo
-              </a>
-              <a href="https://github.com/ArdaaaU/ascii-knight" target="_blank" class="btn btn-secondary btn-sm">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJE 3: KYK YEMEK -->
-        <article class="project-card" data-category="web">
-          <div class="project-thumb-wrapper">
-            <img src="assets/kyk.jpg" alt="KYK Yemek Portalı" class="project-thumb" loading="lazy">
-            <span class="project-badge teal">Mobil Öncelikli</span>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">KYK Yemek Portalı & Kalori Takibi</h3>
-            <p class="project-desc">
-              Devlet yurtlarındaki düşük internet hızlarında bile anında açılan, öğrencilerin günlük ve haftalık menülere tek ekranda ulaşmasını sağlayan hafif dashboard.
-            </p>
-            <div class="project-tags">
-              <span>HTML5</span>
-              <span>CSS3</span>
-              <span>JavaScript</span>
-              <span>Bootstrap</span>
-              <span>Figma</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://kykyemek.vercel.app" target="_blank" class="btn btn-primary btn-sm">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> Canlı Demo
-              </a>
-              <a href="https://github.com/ArdaaaU/KykYemek" target="_blank" class="btn btn-secondary btn-sm">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJE 4: CYBER SHIELD -->
-        <article class="project-card" data-category="uiux">
-          <div class="project-thumb-wrapper">
-            <img src="assets/siber.jpg" alt="Cyber Shield" class="project-thumb" loading="lazy">
-            <span class="project-badge blue">WCAG Erişilebilir</span>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">Cyber Shield — Siber Zorbalık Rehberi</h3>
-            <p class="project-desc">
-              Çocuk ve gençleri akran zorbalığı hakkında bilgilendiren, çevrimiçi vaka simülasyonları içeren pedagojik ve WCAG uyumlu interaktif eğitim platformu.
-            </p>
-            <div class="project-tags">
-              <span>HTML5</span>
-              <span>CSS3</span>
-              <span>Bootstrap</span>
-              <span>WCAG UI/UX</span>
-              <span>Figma</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://siberzorbalik.vercel.app" target="_blank" class="btn btn-primary btn-sm">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> Canlı Demo
-              </a>
-              <a href="https://github.com/ArdaaaU/siberZorbalik" target="_blank" class="btn btn-secondary btn-sm">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJE 5: COREMAX -->
-        <article class="project-card" data-category="uiux">
-          <div class="project-thumb-wrapper">
-            <img src="assets/coremax.jpg" alt="CoreMax" class="project-thumb" loading="lazy">
-            <span class="project-badge">E-Ticaret Vitrini</span>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">CoreMax — Oyuncu Ekipmanları Vitrini</h3>
-            <p class="project-desc">
-              Bilgisayar donanımları odaklı konsept teknoloji markası için tasarlanmış kurumsal kimlik, modern logo ve dinamik grid ürün kataloğu arayüzü.
-            </p>
-            <div class="project-tags">
-              <span>HTML5</span>
-              <span>CSS3</span>
-              <span>Bootstrap</span>
-              <span>Kurumsal Kimlik</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://coremaxtech.vercel.app" target="_blank" class="btn btn-primary btn-sm">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> Canlı Demo
-              </a>
-              <a href="https://github.com/ArdaaaU/Coremax" target="_blank" class="btn btn-secondary btn-sm">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJE 6: DERS PROGRAMI & SINAV TAKVİMİ -->
-        <article class="project-card" data-category="web">
-          <div class="project-thumb-wrapper">
-            <img src="assets/ders.jpg" alt="Ders & Sınav Takvimi" class="project-thumb" loading="lazy">
-            <span class="project-badge teal">Vercel Canlı</span>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">Web Tasarım & Kodlama Ders Takvimi</h3>
-            <p class="project-desc">
-              2. Sınıf Güz dönemi için saf JavaScript ile geliştirilmiş, dinamik Dark/Light mod desteği, gün tespiti ve sınav takvimi sunan mobil uyumlu web platformu.
-            </p>
-            <div class="project-tags">
-              <span>HTML5</span>
-              <span>CSS3</span>
-              <span>JavaScript ES6+</span>
-              <span>LocalStorage</span>
-              <span>Responsive</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://dersprog.vercel.app" target="_blank" class="btn btn-primary btn-sm">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> Canlı Demo
-              </a>
-              <a href="https://github.com/ArdaaaU/Ders-Program-" target="_blank" class="btn btn-secondary btn-sm">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJE 7: JET ENGINE 3D -->
-        <article class="project-card" data-category="simulation">
-          <div class="project-thumb-wrapper">
-            <img src="assets/ucakmotor.jpg" alt="Jet Engine 3D" class="project-thumb" loading="lazy">
-            <span class="project-badge purple">Three.js / WebGL</span>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">Jet Engine 3D Showcase (ucakmotor)</h3>
-            <p class="project-desc">
-              Gerçek zamanlı 3B jet motoru modelleme, kamera yörünge kontrolleri, parça inceleme ve havacılık telemetri analiz platformu.
-            </p>
-            <div class="project-tags">
-              <span>Three.js</span>
-              <span>WebGL</span>
-              <span>GLTF/GLB</span>
-              <span>JavaScript</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://github.com/ArdaaaU/ucakmotor" target="_blank" class="btn btn-secondary btn-sm" style="width: 100%;">
-                <i class="fa-brands fa-github"></i> GitHub Deposunu İncele
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJE 8: OBS SISTEMI -->
-        <article class="project-card" data-category="web">
-          <div class="project-thumb-wrapper">
-            <img src="assets/obs.jpg" alt="OBS Öğrenci Bilgi Sistemi" class="project-thumb" loading="lazy">
-            <span class="project-badge teal">Flask & SQLite</span>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">Öğrenci Bilgi Sistemi (OBS)</h3>
-            <p class="project-desc">
-              Admin, Akademisyen ve Öğrenci olmak üzere 3 rollü yetkilendirme mimarisi; ders atama, vize/final not girişi ve devamsızlık takip sistemi.
-            </p>
-            <div class="project-tags">
-              <span>Python (Flask)</span>
-              <span>SQLite</span>
-              <span>HTML5</span>
-              <span>CSS3</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://github.com/ArdaaaU/OBS-sistemi" target="_blank" class="btn btn-secondary btn-sm" style="width: 100%;">
-                <i class="fa-brands fa-github"></i> GitHub Deposunu İncele
-              </a>
-            </div>
-          </div>
-        </article>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== 06. CONTACT ==================== -->
-  <section class="section contact-section" id="iletisim">
-    <div class="container">
-      
-      <div class="section-tag">// 05. İLETİŞİM</div>
-      <h2 class="section-title">Birlikte Başarılı ve Modern Bir <span class="gradient-text">Proje Başlatalım</span></h2>
-      <p class="section-subtitle">
-        Front-End geliştirme, freelance iş teklifleri veya fikir alışverişi için dilediğiniz zaman ulaşabilirsiniz.
-      </p>
-
-      <div class="contact-grid">
-        
-        <!-- Sol: İletişim Kartları -->
-        <div class="contact-info-col">
-          
-          <!-- E-Posta Kartı -->
-          <div class="contact-box">
-            <div class="contact-icon-box">
-              <i class="fa-regular fa-envelope"></i>
-            </div>
-            <div class="contact-details">
-              <span class="contact-label">E-Posta Adresi</span>
-              <a href="mailto:ardautancak2@gmail.com" class="contact-val">ardautancak2@gmail.com</a>
-            </div>
-            <button class="copy-btn" id="copyEmailBtn" data-copy="ardautancak2@gmail.com" title="E-postayı Kopyala">
-              <i class="fa-regular fa-copy"></i>
-            </button>
-          </div>
-
-          <!-- LinkedIn Kartı -->
-          <div class="contact-box">
-            <div class="contact-icon-box">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </div>
-            <div class="contact-details">
-              <span class="contact-label">LinkedIn Profili</span>
-              <a href="https://www.linkedin.com/in/arda-utancak-b67753432/" target="_blank" class="contact-val">arda-utancak</a>
-            </div>
-            <a href="https://www.linkedin.com/in/arda-utancak-b67753432/" target="_blank" class="copy-btn" title="Profili Aç">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
-
-          <!-- GitHub Kartı -->
-          <div class="contact-box">
-            <div class="contact-icon-box">
-              <i class="fa-brands fa-github"></i>
-            </div>
-            <div class="contact-details">
-              <span class="contact-label">GitHub Profili</span>
-              <a href="https://github.com/ArdaaaU" target="_blank" class="contact-val">github.com/ArdaaaU</a>
-            </div>
-            <a href="https://github.com/ArdaaaU" target="_blank" class="copy-btn" title="Depoları Aç">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
-
-          <!-- Konum Kartı -->
-          <div class="contact-box">
-            <div class="contact-icon-box">
-              <i class="fa-solid fa-location-dot"></i>
-            </div>
-            <div class="contact-details">
-              <span class="contact-label">Konum</span>
-              <span class="contact-val">İzmir, Türkiye (Remote & Hibrit)</span>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Sağ: Mesaj Formu -->
-        <div class="contact-form-col">
-          <form class="contact-form" id="contactForm" action="https://formsubmit.co/ardautancak2@gmail.com" method="POST">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_subject" value="Yeni Portfolyo Mesajı — ardautancak.vercel.app">
-            <div class="form-group">
-              <label for="name">Adınız Soyadınız</label>
-              <input type="text" id="name" name="name" placeholder="Örn: Ahmet Yılmaz" required>
-            </div>
-            <div class="form-group">
-              <label for="email">E-Posta Adresiniz</label>
-              <input type="email" id="email" name="email" placeholder="Örn: ahmet@sirket.com" required>
-            </div>
-            <div class="form-group">
-              <label for="subject">Konu</label>
-              <input type="text" id="subject" name="subject" placeholder="Örn: Web Sitesi Geliştirme Projesi" required>
-            </div>
-            <div class="form-group">
-              <label for="message">Mesajınız</label>
-              <textarea id="message" name="message" rows="4" placeholder="Projeniz veya iletmek istediğiniz detaylar..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">
-              <span>Mesajı Gönder</span>
-              <i class="fa-regular fa-paper-plane"></i>
-            </button>
-            <div class="form-status" id="formStatus"></div>
-          </form>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
+  </main>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="footer">
+  <footer class="site-footer">
     <div class="container footer-container">
       <div class="footer-left">
-        <a href="#anasayfa" class="footer-logo">ARDA<span class="dot">.</span>DEV</a>
-        <p class="footer-tagline">Kullanıcı odaklı modern web ve UI/UX çözümleri.</p>
+        <a href="#anasayfa" class="footer-logo">ARDA<span class="brand-dot">.</span>DEV</a>
+        <p class="footer-tagline">Performanslı, erişilebilir ve temiz kodlanmış web arayüzleri.</p>
       </div>
 
-      <div class="footer-socials">
-        <a href="https://github.com/ArdaaaU" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/arda-utancak-b67753432/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="mailto:ardautancak2@gmail.com" aria-label="E-Posta"><i class="fa-regular fa-envelope"></i></a>
+      <div class="footer-socials" aria-label="Alt bilgi bağlantıları">
+        <a href="https://github.com/ArdaaaU" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/arda-utancak-b67753432/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <a href="mailto:ardautancak2@gmail.com" aria-label="E-Posta">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+        </a>
       </div>
 
       <div class="footer-right">
-        <p>© 2026 Arda Utancak. Tüm hakları saklıdır.</p>
+        <button type="button" class="footer-cmdk-btn" data-open-cmdk>
+          <span>Hızlı Komutlar</span>
+          <kbd class="kbd-hint" data-cmdk-kbd>Ctrl K</kbd>
+        </button>
+        <p>© 2026 Arda Utancak. İzmir, Türkiye.</p>
       </div>
     </div>
   </footer>
 
-  <!-- BACK TO TOP BUTTON -->
-  <button class="back-to-top" id="backToTop" aria-label="Yukarı Çık">
-    <i class="fa-solid fa-arrow-up"></i>
+  <!-- BACK TO TOP -->
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Sayfanın üstüne çık">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m18 15-6-6-6 6"/>
+    </svg>
   </button>
 
-  <!-- JavaScript -->
+  <!-- PROJECT ARCHITECTURE MODAL -->
+  <dialog id="projectModal" class="project-modal" aria-labelledby="modalTitle">
+    <div class="modal-surface">
+      <div class="modal-header">
+        <div>
+          <span class="modal-category" id="modalCategory"></span>
+          <h2 class="modal-title" id="modalTitle"></h2>
+        </div>
+        <button type="button" class="modal-close" id="modalClose" aria-label="Detay penceresini kapat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-tabs" role="tablist" aria-label="Proje görünüm sekmeleri">
+        <button type="button" class="modal-tab is-active" id="tabArch" role="tab" aria-selected="true" aria-controls="panelArch">Mimari Özet</button>
+        <button type="button" class="modal-tab" id="tabCode" role="tab" aria-selected="false" aria-controls="panelCode">Teknik Kod</button>
+      </div>
+
+      <div class="modal-body">
+        <div id="panelArch" class="modal-tabpanel" role="tabpanel" aria-labelledby="tabArch">
+          <p class="modal-summary" id="modalSummary"></p>
+
+          <div class="modal-block">
+            <h3>Rol &amp; Kapsam</h3>
+            <p id="modalRole"></p>
+          </div>
+
+          <div class="modal-block">
+            <h3>Teknik Kararlar &amp; Mimari</h3>
+            <ul class="modal-list" id="modalHighlights"></ul>
+          </div>
+
+          <div class="modal-block">
+            <h3>Teknoloji Yığını</h3>
+            <div class="project-tags" id="modalTags"></div>
+          </div>
+        </div>
+
+        <div id="panelCode" class="modal-code-panel" role="tabpanel" aria-labelledby="tabCode" hidden>
+          <div class="modal-code-header">
+            <span class="modal-code-file" id="modalCodeFile"></span>
+            <button type="button" class="lab-pill" id="modalCopyCode">Kodu Kopyala</button>
+          </div>
+          <pre class="modal-code-pre"><code id="modalCodeBlock"></code></pre>
+        </div>
+      </div>
+
+      <div class="modal-footer" id="modalActions"></div>
+    </div>
+  </dialog>
+
+  <!-- GLOBAL COMMAND PALETTE (CMD+K / CTRL+K) -->
+  <dialog id="cmdkModal" class="cmdk-modal" aria-label="Hızlı komut paleti">
+    <div class="cmdk-surface">
+      <div class="cmdk-search-row">
+        <svg class="cmdk-search-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+        </svg>
+        <input
+          type="search"
+          id="cmdkInput"
+          class="cmdk-input"
+          placeholder="Bölüm, proje veya eylem ara..."
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+          role="combobox"
+          aria-expanded="true"
+          aria-controls="cmdkList"
+          aria-autocomplete="list"
+          aria-label="Komut ara"
+        >
+        <kbd class="kbd-hint">ESC</kbd>
+      </div>
+
+      <div class="cmdk-list" id="cmdkList" role="listbox" aria-label="Komut sonuçları"></div>
+      <div class="cmdk-empty" id="cmdkEmpty" hidden>Eşleşen komut bulunamadı.</div>
+
+      <div class="cmdk-footer" aria-hidden="true">
+        <span><kbd class="kbd-hint">↑↓</kbd> Gezin</span>
+        <span><kbd class="kbd-hint">↵</kbd> Çalıştır</span>
+        <span><kbd class="kbd-hint">ESC</kbd> Kapat</span>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
