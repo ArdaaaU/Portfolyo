@@ -577,17 +577,17 @@ function calculatePsuHeadroom({ cpuWatts, gpuWatts, drives, overclock }) {
       },
       projects: (block) => {
         block.append(
-          createRow('01 Turnuva', 'turnuvaagac.vercel.app (Supabase Realtime)', 'accent'),
-          createRow('02 ASCII Knight', 'ascii-knight.vercel.app (60 FPS Canvas & Audio)', 'accent'),
-          createRow('03 KYK Yemek', 'kykyemek.vercel.app (Mobil Öncelikli)'),
-          createRow('04 Cyber Shield', 'siberzorbalik.vercel.app (WCAG UI/UX)'),
-          createRow('05 CoreMax', 'coremaxtech.vercel.app (E-Ticaret Vitrini)'),
-          createRow('06 Ders Prog.', 'ders-programi.vercel.app (ES6+ & LocalStorage)'),
-          createRow('07 Jet 3D', 'ucakmotor.vercel.app (Three.js / WebGL)'),
+          createRow('01 KYK Yemek', 'kykyemek.vercel.app (Mobil Öncelikli)', 'accent'),
+          createRow('02 Turnuva', 'turnuvaagac.vercel.app (Supabase Realtime)', 'accent'),
+          createRow('03 CoreMax', 'coremaxtech.vercel.app (E-Ticaret Vitrini)'),
+          createRow('04 My-PcWiki', 'ardaaau.github.io/my-pcwiki (Donanım Wiki)', 'accent'),
+          createRow('05 ChronoCraft', 'github.com/ArdaaaU/chronocraft-neural-chronograph (R3F/GLSL)', 'accent'),
+          createRow('06 ASCII Knight', 'ascii-knight.vercel.app (60 FPS Canvas & Audio)'),
+          createRow('07 RigCheck', 'github.com/ArdaaaU/RigCheack (PC Builder & Supabase)'),
           createRow('08 OBS', 'obs-sistemi.vercel.app (Flask & SQLite)'),
-          createRow('09 ChronoCraft', 'github.com/ArdaaaU/chronocraft-neural-chronograph (R3F/GLSL)', 'accent'),
-          createRow('10 RigCheck', 'github.com/ArdaaaU/RigCheack (PC Builder & Supabase)'),
-          createRow('11 My-PcWiki', 'ardaaau.github.io/my-pcwiki (Donanım Wiki)')
+          createRow('09 Cyber Shield', 'siberzorbalik.vercel.app (WCAG UI/UX)'),
+          createRow('10 Jet 3D', 'ucakmotor.vercel.app (Three.js / WebGL)'),
+          createRow('11 Ders Prog.', 'ders-programi.vercel.app (ES6+ & LocalStorage)')
         );
       },
       exp: (block) => {
