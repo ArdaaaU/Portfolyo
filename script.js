@@ -145,80 +145,6 @@ function selectScenarioChoice(stepId, optionIndex) {
   transform: translateY(-4px);
 }`
     },
-    'ders-programi': {
-      category: 'Web Uygulaması · Vanilla JS',
-      title: 'Web Tasarım & Kodlama Ders Takvimi',
-      summary:
-        '2. Sınıf Güz dönemi için saf JavaScript ile geliştirilmiş; otomatik gün tespiti, dinamik Dark/Light tema desteği ve sınav takvimi sunan web platformu.',
-      role: 'Durum yönetimi, LocalStorage kalıcılığı ve responsive ders programı tasarımı.',
-      highlights: [
-        'Kullanıcının tema tercihini LocalStorage üzerinde saklayıp anında uygulayan tema motoru.',
-        'Bulunulan günü otomatik algılayarak aktif ders saatlerini öne çıkaran program görünümü.',
-        'Vize ve final sınav tarihlerini tek panelden takip etme imkanı.'
-      ],
-      tags: ['HTML5', 'CSS3', 'JavaScript ES6+', 'LocalStorage', 'Responsive'],
-      liveUrl: null,
-      githubUrl: 'https://github.com/ArdaaaU/Ders-Program-',
-      codeFile: 'schedule-theme.js',
-      codeSnippet: `// Otomatik gün tespiti ve LocalStorage tema senkronizasyonu
-const DAYS_TR = ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'];
-const currentDay = DAYS_TR[new Date().getDay()];
-const savedTheme = localStorage.getItem('dersprog-theme') || 'dark';
-document.documentElement.dataset.theme = savedTheme;
-highlightActiveDayColumn(currentDay);`
-    },
-    ucakmotor: {
-      category: 'Grafik & Simülasyon · 3D WebGL',
-      title: 'Jet Engine 3D Showcase (ucakmotor)',
-      summary:
-        'Three.js ve WebGL tabanlı gerçek zamanlı 3B jet motoru modelleme, yörünge kamera kontrolleri ve havacılık telemetri analiz sahnesi.',
-      role: 'Three.js sahne kurulumu, ışıklandırma, GLTF/GLB model yükleme ve kamera kontrolü.',
-      highlights: [
-        'OrbitControls ile 360 derece etkileşimli parça inceleme ve yakınlaştırma.',
-        'GLTF/GLB 3B varlık yükleme ve gerçek zamanlı sahne ışıklandırması.',
-        'Havacılık temalı telemetri ve parça analiz arayüzü.'
-      ],
-      tags: ['Three.js', 'WebGL', 'GLTF/GLB', 'JavaScript'],
-      liveUrl: null,
-      githubUrl: 'https://github.com/ArdaaaU/ucakmotor',
-      codeFile: 'turbine-scene.js',
-      codeSnippet: `// Three.js OrbitControls & GLB türbin yükleme döngüsü
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.dampingFactor = 0.06;
-
-loader.load('/models/jet_engine.glb', (gltf) => {
-  turbineMesh = gltf.scene;
-  scene.add(turbineMesh);
-  renderer.setAnimationLoop(renderTelemetryFrame);
-});`
-    },
-    obs: {
-      category: 'Web Uygulaması · Full-Stack',
-      title: 'Öğrenci Bilgi Sistemi (OBS)',
-      summary:
-        'Admin, Akademisyen ve Öğrenci olmak üzere 3 rollü yetkilendirme mimarisine sahip; ders atama, vize/final not girişi ve devamsızlık takip sistemi.',
-      role: 'Flask rota ve rol kontrol mimarisi, SQLite şema tasarımı ve şablon arayüzleri.',
-      highlights: [
-        'Admin, Akademisyen ve Öğrenci panellerini izole eden 3 rollü yetkilendirme akışı.',
-        'Akademisyenler için ders bazlı vize/final not girişi ve devamsızlık kaydı.',
-        'Öğrenciler için ortalama hesaplama ve ders başarı durumu görüntüleme.'
-      ],
-      tags: ['Python (Flask)', 'SQLite', 'HTML5', 'CSS3'],
-      liveUrl: null,
-      githubUrl: 'https://github.com/ArdaaaU/OBS-sistemi',
-      codeFile: 'rbac_routes.py',
-      codeSnippet: `# Flask 3-rollü (Admin, Akademisyen, Öğrenci) yetkilendirme dekoratörü
-def role_required(*allowed_roles):
-    def decorator(fn):
-        @wraps(fn)
-        def wrapper(*args, **kwargs):
-            if session.get("role") not in allowed_roles:
-                abort(403)
-            return fn(*args, **kwargs)
-        return wrapper
-    return decorator`
-    },
     chronocraft: {
       category: 'Grafik & Simülasyon · 3D Lansman',
       title: 'ChronoCraft // NC-01 — 3D Neural Chronograph',
@@ -563,7 +489,7 @@ function calculatePsuHeadroom({ cpuWatts, gpuWatts, drives, overclock }) {
           createRow('Üniversite', 'Manisa Celal Bayar Üniv. (Web Tasarım)'),
           createRow('Temel', 'Çiğli BİST MTAL — C# / Java OOP'),
           createRow('Staj', 'Uniteks IT (Help Desk & Network)'),
-          createRow('Canlı Yayın', '11+ Vercel & GitHub Projesi', 'accent'),
+          createRow('Canlı Yayın', '8+ Vercel & GitHub Projesi', 'accent'),
           createRow('Konum', 'İzmir, Türkiye (Remote / Hibrit)')
         );
       },
@@ -584,10 +510,7 @@ function calculatePsuHeadroom({ cpuWatts, gpuWatts, drives, overclock }) {
           createRow('05 Turnuva', 'turnuvaagac.vercel.app (Supabase Realtime)'),
           createRow('06 ASCII Knight', 'ascii-knight.vercel.app (60 FPS Canvas & Audio)'),
           createRow('07 RigCheck', 'github.com/ArdaaaU/RigCheack (PC Builder & Supabase)'),
-          createRow('08 OBS', 'github.com/ArdaaaU/OBS-sistemi (Flask & SQLite)'),
-          createRow('09 Cyber Shield', 'siberzorbalik.vercel.app (WCAG UI/UX)'),
-          createRow('10 Jet 3D', 'github.com/ArdaaaU/ucakmotor (Three.js / WebGL)'),
-          createRow('11 Ders Prog.', 'github.com/ArdaaaU/Ders-Program- (ES6+ & LocalStorage)')
+          createRow('08 Cyber Shield', 'siberzorbalik.vercel.app (WCAG UI/UX)')
         );
       },
       exp: (block) => {
