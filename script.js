@@ -270,30 +270,6 @@ function evaluateBuildCompatibility(cpu, motherboard, gpu) {
   };
 }`
     },
-    'ibe-sinav': {
-      category: 'Web Uygulaması · Eğitim & UX',
-      title: 'İnsan Bilgisayar Etkileşimi Sınav Stüdyosu',
-      summary:
-        '320 ders slaytından (Ders 1–6) sentezlenen 60 soruluk test ve 25 dakikalık deneme sınavı merkezi; anlık gerekçe, slayt referansı ve tam klavye kısayolu desteği.',
-      role: 'İnteraktif sınav motoru, filtre havuzları, zamanlayıcı ve klavye odaklı çalışma arayüzü.',
-      highlights: [
-        'Çalışma Modu (anlık doğru cevap, gerekçe ve Ders/Slayt referansı) ile 25 dakikalık 25 soruluk Deneme Sınavı.',
-        'Çözülmemişler, Yanlışlar ve Kaydedilenler soru havuzları ile anlık ders notu araması.',
-        'A–D / 1–4 şık seçimi, Enter / → sonraki soru ve K kaydetme klavye kısayolları.'
-      ],
-      tags: ['JavaScript ES6+', 'HTML5', 'CSS3', 'Klavye UX'],
-      liveUrl: 'https://ibe-sinav-calisma.vercel.app',
-      githubUrl: 'https://github.com/ArdaaaU/ibe-sinav-calisma',
-      codeFile: 'app.js',
-      codeSnippet: `// Sınav stüdyosu klavye kısayol yöneticisi (A-D / 1-4, Enter, K)
-document.addEventListener('keydown', (e) => {
-  const key = e.key.toUpperCase();
-  const map = { A: 0, B: 1, C: 2, D: 3, '1': 0, '2': 1, '3': 2, '4': 3 };
-  if (key in map) selectOption(map[key]);
-  else if (key === 'ENTER' || e.key === 'ArrowRight') nextQuestion();
-  else if (key === 'K') toggleBookmarkCurrent();
-});`
-    },
     'my-pcwiki': {
       category: 'UI/UX & Vitrin · Donanım Bilgi Bankası',
       title: 'My-PcWiki — 2026 PC Donanım Rehberi',
@@ -573,7 +549,7 @@ function calculatePsuHeadroom({ cpuWatts, gpuWatts, drives, overclock }) {
         [
           ['whoami', 'Geliştirici profili ve eğitim özeti'],
           ['stack', 'Front-End, veritabanı, OOP ve ağ teknolojileri'],
-          ['projects', 'Yayındaki seçili 12 web ve 3D projesi'],
+          ['projects', 'Yayındaki seçili 11 web ve 3D projesi'],
           ['exp', 'Üniversite, IT stajı ve lise geçmişi'],
           ['contact', 'E-posta, GitHub ve LinkedIn bilgileri'],
           ['copy', 'E-posta adresini panoya kopyalar'],
@@ -587,7 +563,7 @@ function calculatePsuHeadroom({ cpuWatts, gpuWatts, drives, overclock }) {
           createRow('Üniversite', 'Manisa Celal Bayar Üniv. (Web Tasarım)'),
           createRow('Temel', 'Çiğli BİST MTAL — C# / Java OOP'),
           createRow('Staj', 'Uniteks IT (Help Desk & Network)'),
-          createRow('Canlı Yayın', '12+ Vercel & GitHub Projesi', 'accent'),
+          createRow('Canlı Yayın', '11+ Vercel & GitHub Projesi', 'accent'),
           createRow('Konum', 'İzmir, Türkiye (Remote / Hibrit)')
         );
       },
@@ -611,8 +587,7 @@ function calculatePsuHeadroom({ cpuWatts, gpuWatts, drives, overclock }) {
           createRow('08 OBS', 'obs-sistemi.vercel.app (Flask & SQLite)'),
           createRow('09 ChronoCraft', 'github.com/ArdaaaU/chronocraft-neural-chronograph (R3F/GLSL)', 'accent'),
           createRow('10 RigCheck', 'github.com/ArdaaaU/RigCheack (PC Builder & Supabase)'),
-          createRow('11 İBE Stüdyo', 'ibe-sinav-calisma.vercel.app (60 Soru & Deneme)'),
-          createRow('12 My-PcWiki', 'ardaaau.github.io/my-pcwiki (Donanım Wiki)')
+          createRow('11 My-PcWiki', 'ardaaau.github.io/my-pcwiki (Donanım Wiki)')
         );
       },
       exp: (block) => {
