@@ -157,7 +157,7 @@ function selectScenarioChoice(stepId, optionIndex) {
         'Vize ve final sınav tarihlerini tek panelden takip etme imkanı.'
       ],
       tags: ['HTML5', 'CSS3', 'JavaScript ES6+', 'LocalStorage', 'Responsive'],
-      liveUrl: 'https://dersprog.vercel.app',
+      liveUrl: 'https://ders-programi.vercel.app',
       githubUrl: 'https://github.com/ArdaaaU/Ders-Program-',
       codeFile: 'schedule-theme.js',
       codeSnippet: `// Otomatik gün tespiti ve LocalStorage tema senkronizasyonu
@@ -179,7 +179,7 @@ highlightActiveDayColumn(currentDay);`
         'Havacılık temalı telemetri ve parça analiz arayüzü.'
       ],
       tags: ['Three.js', 'WebGL', 'GLTF/GLB', 'JavaScript'],
-      liveUrl: null,
+      liveUrl: 'https://ucakmotor.vercel.app',
       githubUrl: 'https://github.com/ArdaaaU/ucakmotor',
       codeFile: 'turbine-scene.js',
       codeSnippet: `// Three.js OrbitControls & GLB türbin yükleme döngüsü
@@ -205,7 +205,7 @@ loader.load('/models/jet_engine.glb', (gltf) => {
         'Öğrenciler için ortalama hesaplama ve ders başarı durumu görüntüleme.'
       ],
       tags: ['Python (Flask)', 'SQLite', 'HTML5', 'CSS3'],
-      liveUrl: null,
+      liveUrl: 'https://obs-sistemi.vercel.app',
       githubUrl: 'https://github.com/ArdaaaU/OBS-sistemi',
       codeFile: 'rbac_routes.py',
       codeSnippet: `# Flask 3-rollü (Admin, Akademisyen, Öğrenci) yetkilendirme dekoratörü
@@ -218,6 +218,103 @@ def role_required(*allowed_roles):
             return fn(*args, **kwargs)
         return wrapper
     return decorator`
+    },
+    chronocraft: {
+      category: 'Grafik & Simülasyon · 3D Lansman',
+      title: 'ChronoCraft // NC-01 — 3D Neural Chronograph',
+      summary:
+        'Next.js 16, React Three Fiber, özel GLSL plazma/Fresnel shader\'ları ve GSAP ScrollTrigger parçalanmış görünüm (exploded view) koreografisiyle geliştirilen 3D ürün lansmanı.',
+      role: 'R3F 3D sahne mimarisi, GLSL fragment shader yazımı, GSAP ScrollTrigger kamera/parça koreografisi.',
+      highlights: [
+        'Khronos ChronographWatch.glb PBR modeli, CatmullRomCurve3 kamera spline\'ı ve useFrame içinde sıfır React state güncellemesiyle 60 FPS akıcılık.',
+        '5 oktav FBM & domainWarp derin uzay shader\'ı, Fresnel holografik safir lens ve 220 adet InstancedMesh sinaptik parçacık.',
+        'GSAP ScrollTrigger (pin + scrub) ile ΔZ 0.00 mm → 42.00 mm ekseninde parçalanan kuantum nöral çekirdek görünümü.'
+      ],
+      tags: ['Next.js 16', 'TypeScript', 'React Three Fiber', 'GLSL', 'GSAP ScrollTrigger', 'Tailwind CSS 4'],
+      liveUrl: null,
+      githubUrl: 'https://github.com/ArdaaaU/chronocraft-neural-chronograph',
+      codeFile: 'ChronoModel.tsx',
+      codeSnippet: `// R3F useFrame içinde sıfır React state güncellemesiyle exploded-view Z ekseni ayrımı
+useFrame((_, delta) => {
+  const progress = scrollStateRef.current.explodeProgress;
+  backplateRef.current.position.z = THREE.MathUtils.damp(
+    backplateRef.current.position.z, -progress * 0.42, 6, delta
+  );
+  glassFaceRef.current.position.z = THREE.MathUtils.damp(
+    glassFaceRef.current.position.z, progress * 0.42, 6, delta
+  );
+});`
+    },
+    rigcheck: {
+      category: 'Web Uygulaması · Donanım & BaaS',
+      title: 'RigCheck — Donanım Uyumluluk & Destek Platformu',
+      summary:
+        'PC toplama uyumluluk simülatörü, BSOD/POST/Debug LED hata kodu sözlüğü, FPS benchmark veritabanı ve uzman canlı destek hattını birleştiren web platformu.',
+      role: 'Modüler ES6+ istemci mimarisi, PC Builder uyumluluk algoritmaları ve Supabase entegrasyonu.',
+      highlights: [
+        'Soket uyumluluğu, güç kaynağı (PSU) gereksinimi ve olası darboğazları anlık denetleyen PC Builder modülü.',
+        'Anakart Debug LED, BIOS bip sesleri ve Windows BSOD kodları için aranabilir hata kodu sözlüğü.',
+        'Supabase destekli uzman canlı destek hattı ve topluluk tabanlı FPS benchmark kütüphanesi.'
+      ],
+      tags: ['JavaScript ES6+', 'Supabase', 'HTML5', 'CSS3'],
+      liveUrl: null,
+      githubUrl: 'https://github.com/ArdaaaU/RigCheack',
+      codeFile: 'js/builder.js',
+      codeSnippet: `// PC Builder soket uyumluluğu ve önerilen PSU kapasitesi hesaplaması
+function evaluateBuildCompatibility(cpu, motherboard, gpu) {
+  const socketMatch = cpu.socket === motherboard.socket;
+  const estimatedWatts = Math.ceil((cpu.tdp + gpu.tdp + 120) * 1.3);
+  return {
+    compatible: socketMatch,
+    recommendedPsu: Math.max(550, Math.ceil(estimatedWatts / 50) * 50)
+  };
+}`
+    },
+    'ibe-sinav': {
+      category: 'Web Uygulaması · Eğitim & UX',
+      title: 'İnsan Bilgisayar Etkileşimi Sınav Stüdyosu',
+      summary:
+        '320 ders slaytından (Ders 1–6) sentezlenen 60 soruluk test ve 25 dakikalık deneme sınavı merkezi; anlık gerekçe, slayt referansı ve tam klavye kısayolu desteği.',
+      role: 'İnteraktif sınav motoru, filtre havuzları, zamanlayıcı ve klavye odaklı çalışma arayüzü.',
+      highlights: [
+        'Çalışma Modu (anlık doğru cevap, gerekçe ve Ders/Slayt referansı) ile 25 dakikalık 25 soruluk Deneme Sınavı.',
+        'Çözülmemişler, Yanlışlar ve Kaydedilenler soru havuzları ile anlık ders notu araması.',
+        'A–D / 1–4 şık seçimi, Enter / → sonraki soru ve K kaydetme klavye kısayolları.'
+      ],
+      tags: ['JavaScript ES6+', 'HTML5', 'CSS3', 'Klavye UX'],
+      liveUrl: 'https://ibe-sinav-calisma.vercel.app',
+      githubUrl: 'https://github.com/ArdaaaU/ibe-sinav-calisma',
+      codeFile: 'app.js',
+      codeSnippet: `// Sınav stüdyosu klavye kısayol yöneticisi (A-D / 1-4, Enter, K)
+document.addEventListener('keydown', (e) => {
+  const key = e.key.toUpperCase();
+  const map = { A: 0, B: 1, C: 2, D: 3, '1': 0, '2': 1, '3': 2, '4': 3 };
+  if (key in map) selectOption(map[key]);
+  else if (key === 'ENTER' || e.key === 'ArrowRight') nextQuestion();
+  else if (key === 'K') toggleBookmarkCurrent();
+});`
+    },
+    'my-pcwiki': {
+      category: 'UI/UX & Vitrin · Donanım Bilgi Bankası',
+      title: 'My-PcWiki — 2026 PC Donanım Rehberi',
+      summary:
+        '2026 web standartlarına göre modernize edilmiş Türkçe PC donanım bilgi bankası, ATX 3.1 PSU & darboğaz hesaplayıcı, yan yana karşılaştırma ve Ctrl+K hızlı arama.',
+      role: 'Tasarım sistemi, duyarlı katalog mimarisi, PSU hesaplayıcı ve klavye kısayollu arama.',
+      highlights: [
+        'CPU, GPU, soğutma/depolama ve OC seçeneklerine göre anlık ATX 3.1 PSU kapasitesi ve darboğaz uyarısı.',
+        'CPU, GPU, Kasa, PSU, RAM ve SSD rehberlerinde en fazla 3 ürünün yan yana teknik karşılaştırması.',
+        'Ctrl+K / / hızlı arama kısayolu, Koyu/Açık tema desteği ve detaylı donanım inceleme sayfaları.'
+      ],
+      tags: ['HTML5', 'CSS3 Grid', 'JavaScript', 'GitHub Pages'],
+      liveUrl: 'https://ardaaau.github.io/my-pcwiki/',
+      githubUrl: 'https://github.com/ArdaaaU/my-pcwiki',
+      codeFile: 'psu-calculator.js',
+      codeSnippet: `// 2026 ATX 3.1 PSU kapasitesi ve hız aşırtma payı hesaplayıcı
+function calculatePsuHeadroom({ cpuWatts, gpuWatts, drives, overclock }) {
+  const baseLoad = cpuWatts + gpuWatts + drives * 12 + 65;
+  const multiplier = overclock ? 1.4 : 1.25;
+  return Math.ceil((baseLoad * multiplier) / 50) * 50;
+}`
     }
   };
 
@@ -476,7 +573,7 @@ def role_required(*allowed_roles):
         [
           ['whoami', 'Geliştirici profili ve eğitim özeti'],
           ['stack', 'Front-End, veritabanı, OOP ve ağ teknolojileri'],
-          ['projects', 'Yayındaki seçili 8 web projesi'],
+          ['projects', 'Yayındaki seçili 12 web ve 3D projesi'],
           ['exp', 'Üniversite, IT stajı ve lise geçmişi'],
           ['contact', 'E-posta, GitHub ve LinkedIn bilgileri'],
           ['copy', 'E-posta adresini panoya kopyalar'],
@@ -490,13 +587,13 @@ def role_required(*allowed_roles):
           createRow('Üniversite', 'Manisa Celal Bayar Üniv. (Web Tasarım)'),
           createRow('Temel', 'Çiğli BİST MTAL — C# / Java OOP'),
           createRow('Staj', 'Uniteks IT (Help Desk & Network)'),
-          createRow('Canlı Yayın', '8+ Vercel & GitHub Projesi', 'accent'),
+          createRow('Canlı Yayın', '12+ Vercel & GitHub Projesi', 'accent'),
           createRow('Konum', 'İzmir, Türkiye (Remote / Hibrit)')
         );
       },
       stack: (block) => {
         block.append(
-          createRow('Front-End', 'HTML5, CSS3, ES6+, Canvas 2D, Three.js, Web Audio'),
+          createRow('Front-End', 'HTML5, CSS3, ES6+, TypeScript, Next.js, R3F, GLSL, GSAP'),
           createRow('Veri & BaaS', 'Supabase Realtime, PostgreSQL, MySQL, Flask, SQLite'),
           createRow('OOP & Kod', 'C# (Visual Studio), Java, Temiz Kod'),
           createRow('Sistem & Ağ', 'TCP/IP, DHCP, DNS, Git/GitHub, Vercel')
@@ -509,9 +606,13 @@ def role_required(*allowed_roles):
           createRow('03 KYK Yemek', 'kykyemek.vercel.app (Mobil Öncelikli)'),
           createRow('04 Cyber Shield', 'siberzorbalik.vercel.app (WCAG UI/UX)'),
           createRow('05 CoreMax', 'coremaxtech.vercel.app (E-Ticaret Vitrini)'),
-          createRow('06 Ders Prog.', 'dersprog.vercel.app (ES6+ & LocalStorage)'),
-          createRow('07 Jet 3D', 'github.com/ArdaaaU/ucakmotor (Three.js)'),
-          createRow('08 OBS', 'github.com/ArdaaaU/OBS-sistemi (Flask & SQLite)')
+          createRow('06 Ders Prog.', 'ders-programi.vercel.app (ES6+ & LocalStorage)'),
+          createRow('07 Jet 3D', 'ucakmotor.vercel.app (Three.js / WebGL)'),
+          createRow('08 OBS', 'obs-sistemi.vercel.app (Flask & SQLite)'),
+          createRow('09 ChronoCraft', 'github.com/ArdaaaU/chronocraft-neural-chronograph (R3F/GLSL)', 'accent'),
+          createRow('10 RigCheck', 'github.com/ArdaaaU/RigCheack (PC Builder & Supabase)'),
+          createRow('11 İBE Stüdyo', 'ibe-sinav-calisma.vercel.app (60 Soru & Deneme)'),
+          createRow('12 My-PcWiki', 'ardaaau.github.io/my-pcwiki (Donanım Wiki)')
         );
       },
       exp: (block) => {

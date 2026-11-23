@@ -9,7 +9,7 @@ Sıfır derleme (zero-build) statik mimariyle hazırlanmış, sabit **Alabaster 
 ## Öne Çıkan Özellikler
 
 - **Alabaster Light & Amber Tasarım Sistemi**: Sıcak taş beyazı yüzey katmanları (`#f7f7f5` → `#ffffff`), koyu mürekkep tipografi, WCAG AA uyumlu amber vurgu (`#b45309` / `#d97706`) ve yüksek kontrastlı koyu kod/terminal pencereleri.
-- **Global Komut Paleti (`Ctrl+K` / `⌘K`)**: Sayfa içi bölümler, 8 proje detayı ve hızlı eylemler arasında klavyeyle anlık arama ve gezinme.
+- **Global Komut Paleti (`Ctrl+K` / `⌘K`)**: Sayfa içi bölümler, 12 proje detayı ve hızlı eylemler arasında klavyeyle anlık arama ve gezinme.
 - **Mimari & Teknik Kod Modalı**: Her proje için `<dialog>` penceresinde **Mimari Özet** ve kopyalanabilir **Teknik Kod** sekmeleri.
 - **Gerçek Etkileşimli Terminal**: `whoami`, `stack`, `projects`, `exp`, `contact`, `copy`, `help` ve `clear` komutlarını destekleyen XSS güvenli terminal simülatörü.
 - **Erişilebilirlik & Performans (WCAG 2.1 AA)**: Satır içi SVG ikonlar, skip-link, `:focus-visible` halkaları, `44×44px` dokunma hedefleri, GPU tabanlı okuma ilerleme çizgisi, kardeş öğe odaklama ve `@media (prefers-reduced-motion: reduce)` desteği.
