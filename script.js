@@ -157,7 +157,7 @@ function selectScenarioChoice(stepId, optionIndex) {
         'Vize ve final sınav tarihlerini tek panelden takip etme imkanı.'
       ],
       tags: ['HTML5', 'CSS3', 'JavaScript ES6+', 'LocalStorage', 'Responsive'],
-      liveUrl: 'https://ders-programi.vercel.app',
+      liveUrl: null,
       githubUrl: 'https://github.com/ArdaaaU/Ders-Program-',
       codeFile: 'schedule-theme.js',
       codeSnippet: `// Otomatik gün tespiti ve LocalStorage tema senkronizasyonu
@@ -179,7 +179,7 @@ highlightActiveDayColumn(currentDay);`
         'Havacılık temalı telemetri ve parça analiz arayüzü.'
       ],
       tags: ['Three.js', 'WebGL', 'GLTF/GLB', 'JavaScript'],
-      liveUrl: 'https://ucakmotor.vercel.app',
+      liveUrl: null,
       githubUrl: 'https://github.com/ArdaaaU/ucakmotor',
       codeFile: 'turbine-scene.js',
       codeSnippet: `// Three.js OrbitControls & GLB türbin yükleme döngüsü
@@ -205,7 +205,7 @@ loader.load('/models/jet_engine.glb', (gltf) => {
         'Öğrenciler için ortalama hesaplama ve ders başarı durumu görüntüleme.'
       ],
       tags: ['Python (Flask)', 'SQLite', 'HTML5', 'CSS3'],
-      liveUrl: 'https://obs-sistemi.vercel.app',
+      liveUrl: null,
       githubUrl: 'https://github.com/ArdaaaU/OBS-sistemi',
       codeFile: 'rbac_routes.py',
       codeSnippet: `# Flask 3-rollü (Admin, Akademisyen, Öğrenci) yetkilendirme dekoratörü
@@ -584,10 +584,10 @@ function calculatePsuHeadroom({ cpuWatts, gpuWatts, drives, overclock }) {
           createRow('05 Turnuva', 'turnuvaagac.vercel.app (Supabase Realtime)'),
           createRow('06 ASCII Knight', 'ascii-knight.vercel.app (60 FPS Canvas & Audio)'),
           createRow('07 RigCheck', 'github.com/ArdaaaU/RigCheack (PC Builder & Supabase)'),
-          createRow('08 OBS', 'obs-sistemi.vercel.app (Flask & SQLite)'),
+          createRow('08 OBS', 'github.com/ArdaaaU/OBS-sistemi (Flask & SQLite)'),
           createRow('09 Cyber Shield', 'siberzorbalik.vercel.app (WCAG UI/UX)'),
-          createRow('10 Jet 3D', 'ucakmotor.vercel.app (Three.js / WebGL)'),
-          createRow('11 Ders Prog.', 'ders-programi.vercel.app (ES6+ & LocalStorage)')
+          createRow('10 Jet 3D', 'github.com/ArdaaaU/ucakmotor (Three.js / WebGL)'),
+          createRow('11 Ders Prog.', 'github.com/ArdaaaU/Ders-Program- (ES6+ & LocalStorage)')
         );
       },
       exp: (block) => {
